@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 
@@ -10,7 +10,7 @@ namespace AntMe.Simulation
     /// Spielelementen auf dem Spielfeld.
     /// </summary>
     /// <remarks>
-    /// Ein Spielelement wird unabhängig von seinem Radius in genau eine Zelle
+    /// Ein Spielelement wird unabhÃ¤ngig von seinem Radius in genau eine Zelle
     /// einsortiert. Spielelemente "zwei Zellen weiter" werden daher auch dann
     /// nicht gefunden, wenn sie (durch ihren Radius) eigentlich nahe genug
     /// am Referenzelement liegen.
@@ -36,12 +36,12 @@ namespace AntMe.Simulation
             public readonly int Width;
 
             /// <summary>
-            /// Die Höhe des Gitters.
+            /// Die HÃ¶he des Gitters.
             /// </summary>
             public readonly int Height;
 
             /// <summary>
-            /// Die Seitenlänge einer Gitterzelle.
+            /// Die SeitenlÃ¤nge einer Gitterzelle.
             /// </summary>
             public readonly int SideLength;
 
@@ -49,8 +49,8 @@ namespace AntMe.Simulation
             /// Erzeugt eine neue Instanz der Struktur.
             /// </summary>
             /// <param name="width">Die Breite des Gitters.</param>
-            /// <param name="height">Die Höhe des Gitters.</param>
-            /// <param name="sideLength">Die Seitenlänge einer Gitterzelle.</param>
+            /// <param name="height">Die HÃ¶he des Gitters.</param>
+            /// <param name="sideLength">Die SeitenlÃ¤nge einer Gitterzelle.</param>
             public GridSize(int width, int height, int sideLength)
             {
                 Width = width;
@@ -66,12 +66,12 @@ namespace AntMe.Simulation
             new Dictionary<GridSize, Grid<T>>();
 
         /// <summary>
-        /// Erzeugt ein Gitter mit den angegebenen Maßen oder gibt ein vorhandenes
-        /// Gitter mit diesem Maßen zurück.
+        /// Erzeugt ein Gitter mit den angegebenen MaÃŸen oder gibt ein vorhandenes
+        /// Gitter mit diesem MaÃŸen zurÃ¼ck.
         /// </summary>
         /// <param name="width">Breite des Gitters.</param>
-        /// <param name="height">Höhe des Gitters.</param>
-        /// <param name="sideLength">Seitenlänge einer Gitterzelle. Bestimmt die
+        /// <param name="height">HÃ¶he des Gitters.</param>
+        /// <param name="sideLength">SeitenlÃ¤nge einer Gitterzelle. Bestimmt die
         /// maximale Entfernung bis zu der ein Spielelement ein anderes sehen kann.</param>
         public static Grid<T> Create(int width, int height, int sideLength)
         {
@@ -96,7 +96,7 @@ namespace AntMe.Simulation
         /// <summary>
         /// Erzeugt eine neue Instanz der Klasse.
         /// </summary>
-        /// <param name="size">Die Maße des Gitters.</param>
+        /// <param name="size">Die MaÃŸe des Gitters.</param>
         private Grid(GridSize size)
         {
             sideLength = size.SideLength;
@@ -113,8 +113,8 @@ namespace AntMe.Simulation
         /// Erzeugt einen neue Instanz der Klasse.
         /// </summary>
         /// <param name="width">Breite des Gitters.</param>
-        /// <param name="height">Höhe des Gitters.</param>
-        /// <param name="sideLength">Seitenlänge einer Gitterzelle. Bestimmt die
+        /// <param name="height">HÃ¶he des Gitters.</param>
+        /// <param name="sideLength">SeitenlÃ¤nge einer Gitterzelle. Bestimmt die
         /// maximale Entfernung bis zu der ein Spielelement ein anderes sehen kann.</param>
         public Grid(int width, int height, int sideLength)
         {
@@ -176,7 +176,7 @@ namespace AntMe.Simulation
         }
 
         /// <summary>
-        /// Fügt dem Gitter mehrere Spielelemente hinzu.
+        /// FÃ¼gt dem Gitter mehrere Spielelemente hinzu.
         /// </summary>
         /// <param name="elemente">Eine Liste von Spielelementen.</param>
         public void Add(List<T> elemente)
@@ -273,7 +273,7 @@ namespace AntMe.Simulation
             // Speichert alle gefundenen Tupel (Spielelement, Entfernung).
             List<Tupel> tupels = new List<Tupel>();
 
-            // Bestimme die Zelle in der das übergebene Spielelement sich befindet.
+            // Bestimme die Zelle in der das Ã¼bergebene Spielelement sich befindet.
             int col = coordinate.CoordinateBase.X / sideLength;
             int row = coordinate.CoordinateBase.Y / sideLength;
 
@@ -295,7 +295,7 @@ namespace AntMe.Simulation
                             }
                         }
 
-            // Sortiere die Tupel und gib die Spielelemente zurück.
+            // Sortiere die Tupel und gib die Spielelemente zurÃ¼ck.
             tupels.Sort(comparer);
             List<T> elements = new List<T>(tupels.Count);
             for (int i = 0; i < tupels.Count; i++)
@@ -308,7 +308,7 @@ namespace AntMe.Simulation
         /// </summary>
         /// <remarks>
         /// Die Simulation legt ein Gitter mit der maximalen Sichtweite der Wanzen als
-        /// Seitenlänge an und benutzt diese Methode auf dieser Instanz zum Finden von
+        /// SeitenlÃ¤nge an und benutzt diese Methode auf dieser Instanz zum Finden von
         /// Ameisen. In dieses Gitter werden nur Ameisen einsortiert.
         /// </remarks>
         /// <param name="bug">Die Referenzwanze.</param>
@@ -318,7 +318,7 @@ namespace AntMe.Simulation
             // Speichert alle gefundenen Ameisen.
             List<T> ants = new List<T>();
 
-            // Bestimme die Zelle in der die übergebene Wanze sich befindet.
+            // Bestimme die Zelle in der die Ã¼bergebene Wanze sich befindet.
             int col = bug.CoordinateBase.X / sideLength;
             int row = bug.CoordinateBase.Y / sideLength;
 
@@ -342,11 +342,11 @@ namespace AntMe.Simulation
 
         /// <summary>
         /// Findet die Markierung, die die gegebene Ameise noch nicht gerochen hat
-        /// und die der Ameise am nächsten liegt.
+        /// und die der Ameise am nÃ¤chsten liegt.
         /// </summary>
         /// <remarks>
         /// Die Simulation legt ein Gitter mit dem maximalen Radius einer Markierung als
-        /// Seitenlänge an und benutzt diese Methode auf dieser Instanz zum Finden von
+        /// SeitenlÃ¤nge an und benutzt diese Methode auf dieser Instanz zum Finden von
         /// Markierungen. In dieses Gitter werden nur Markierungen einsortiert.
         /// </remarks>
         /// <param name="ant">Die Referenzameise.</param>
@@ -356,7 +356,7 @@ namespace AntMe.Simulation
             CoreMarker nearestMarker = null;
             int nearestMarkerDistance = int.MaxValue;
 
-            // Bestimme die Zelle in der die übergebene Ameise sich befindet.
+            // Bestimme die Zelle in der die Ã¼bergebene Ameise sich befindet.
             int col = ant.CoordinateBase.X / sideLength;
             int row = ant.CoordinateBase.Y / sideLength;
 
@@ -379,7 +379,7 @@ namespace AntMe.Simulation
                                 int circleDistance = distance - ant.CoordinateBase.Radius - marker.CoordinateBase.Radius;
 
                                 // Die neue Markierung wurde noch nicht gerochen und
-                                // liegt näher als die gemerkte.
+                                // liegt nÃ¤her als die gemerkte.
                                 if (circleDistance <= 0 && distance < nearestMarkerDistance &&
                                     !ant.SmelledMarker.Contains(marker))
                                 {
@@ -395,12 +395,12 @@ namespace AntMe.Simulation
         /// <summary>
         /// Findet die Wanze, die feindliche Ameise und die befreundete Ameise mit der
         /// geringsten Entfernung innerhalb des Sichtkreis der gegebenen Ameise und
-        /// zählt die Anzahl an Wanzen, feindlichen und befreundeten Ameisen im Sichtkreis.
+        /// zÃ¤hlt die Anzahl an Wanzen, feindlichen und befreundeten Ameisen im Sichtkreis.
         /// </summary>
         /// <remarks>
-        /// Wird für Ameisen verwendet. Die Simulation legt für jeden vorkommenden Sichtradius
+        /// Wird fÃ¼r Ameisen verwendet. Die Simulation legt fÃ¼r jeden vorkommenden Sichtradius
         /// eine eigenes Gitter an und benutzt diese Methode auf der passenden Instanz zum Finden
-        /// von Insekten. Die Seitenlänge dieses Gitters ist also der Sichradius der Ameise.
+        /// von Insekten. Die SeitenlÃ¤nge dieses Gitters ist also der Sichradius der Ameise.
         /// In diese Gitter werden Wanzen und Ameisen einsortiert.
         /// </remarks>
         /// <param name="ant">Die Referenzameise.</param>
@@ -416,13 +416,13 @@ namespace AntMe.Simulation
             out int colonyAntCount, out int casteAntCount, out CoreAnt nearestTeamAnt,
             out int teamAntCount)
         {
-            // Die nächstliegenden gefundenen Wanzen und Ameisen.
+            // Die nÃ¤chstliegenden gefundenen Wanzen und Ameisen.
             nearestBug = null;
             nearestEnemyAnt = null;
             nearestColonyAnt = null;
             nearestTeamAnt = null;
 
-            // Die Entfernungen zu den nächstliegenden gefundenen Wanzen und Ameisen.
+            // Die Entfernungen zu den nÃ¤chstliegenden gefundenen Wanzen und Ameisen.
             int nearestBugDistance = int.MaxValue;
             int nearestEnemyAntDistance = int.MaxValue;
             int nearestColonyAntDistance = int.MaxValue;
@@ -435,7 +435,7 @@ namespace AntMe.Simulation
             casteAntCount = 0;
             teamAntCount = 0;
 
-            // Bestimme die Zelle in der die übergebene Ameise sich befindet.
+            // Bestimme die Zelle in der die Ã¼bergebene Ameise sich befindet.
             int col = ant.CoordinateBase.X / sideLength;
             int row = ant.CoordinateBase.Y / sideLength;
 
@@ -457,19 +457,19 @@ namespace AntMe.Simulation
                                     continue;
 
                                 // Vergleiche die Entfernung zum aktuellen Insekt mit der
-                                // Sichtweite der Ameise bzw. der Seitenlänge des Gitters.
+                                // Sichtweite der Ameise bzw. der SeitenlÃ¤nge des Gitters.
                                 int distance = CoreCoordinate.BestimmeEntfernungI(ant.CoordinateBase, insect.CoordinateBase);
                                 if (distance > sideLength)
                                     continue;
 
-                                // Selbes Volk. Die Abfrage "insect is CoreAnt" ist unnötig.
+                                // Selbes Volk. Die Abfrage "insect is CoreAnt" ist unnÃ¶tig.
                                 if (insect.colony == ant.colony)
                                 {
                                     colonyAntCount++;
                                     if (insect.CasteIndexBase == ant.CasteIndexBase)
                                         casteAntCount++;
 
-                                    // Die neue Ameise liegt näher als die gemerkte.
+                                    // Die neue Ameise liegt nÃ¤her als die gemerkte.
                                     if (distance < nearestColonyAntDistance)
                                     {
                                         nearestColonyAntDistance = distance;
@@ -482,7 +482,7 @@ namespace AntMe.Simulation
                                 {
                                     teamAntCount++;
 
-                                    // Die neue Ameise liegt näher als die gemerkte.
+                                    // Die neue Ameise liegt nÃ¤her als die gemerkte.
                                     if (distance < nearestTeamAntDistance)
                                     {
                                         nearestTeamAntDistance = distance;
@@ -495,7 +495,7 @@ namespace AntMe.Simulation
                                 {
                                     bugCount++;
 
-                                    // Die neue Wanze liegt näher als die gemerkte.
+                                    // Die neue Wanze liegt nÃ¤her als die gemerkte.
                                     if (distance < nearestBugDistance)
                                     {
                                         nearestBugDistance = distance;
@@ -508,7 +508,7 @@ namespace AntMe.Simulation
                                 {
                                     enemyAntCount++;
 
-                                    // Die neue Ameise liegt näher als die gemerkte.
+                                    // Die neue Ameise liegt nÃ¤her als die gemerkte.
                                     if (distance < nearestEnemyAntDistance)
                                     {
                                         nearestEnemyAntDistance = distance;

@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using AntMe.SharedComponents.States;
 
@@ -37,7 +37,7 @@ namespace AntMe.Simulation
         /// <param name="configuration">configuration</param>
         public Simulator(SimulatorConfiguration configuration)
         {
-            // Leere Konfiguration prüfen
+            // Leere Konfiguration prÃ¼fen
             if (configuration == null)
             {
                 throw new ArgumentNullException("configuration", Resource.SimulationCoreFactoryConfigIsNull);
@@ -78,7 +78,7 @@ namespace AntMe.Simulation
                 }
             }
 
-            // Regelprüfung der Konfig anwerfen
+            // RegelprÃ¼fung der Konfig anwerfen
             configuration.Rulecheck();
 
 

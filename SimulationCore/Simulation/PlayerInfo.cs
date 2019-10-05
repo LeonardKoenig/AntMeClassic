@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
@@ -184,7 +184,7 @@ namespace AntMe.Simulation {
             bool requestReferences,
             string requestInformation)
         {
-            // Ameisenkasten überprüfen
+            // Ameisenkasten Ã¼berprÃ¼fen
             if (castes == null) {
                 this.castes = new List<CasteInfo>();
             }
@@ -192,7 +192,7 @@ namespace AntMe.Simulation {
                 this.castes = castes;
             }
 
-            // Restliche Daten übertragen
+            // Restliche Daten Ã¼bertragen
             Guid = guid;
             ColonyName = colonyName;
             FirstName = firstName;

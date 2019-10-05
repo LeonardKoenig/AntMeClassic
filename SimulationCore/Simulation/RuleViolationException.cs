@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Runtime.Serialization;
 using AntMe.SharedComponents;
 
@@ -14,20 +14,20 @@ namespace AntMe.Simulation {
         public RuleViolationException() { }
 
         /// <summary>
-        /// Konsruktor der Regelverletzung mit der Übergabe einer Beschreibung zur Verletzung
+        /// Konsruktor der Regelverletzung mit der Ãœbergabe einer Beschreibung zur Verletzung
         /// </summary>
         /// <param name="message">Beschreibung der Regelverletzung</param>
         public RuleViolationException(string message) : base(message) { }
 
         /// <summary>
-        /// Konstruktor zur Regelverletung mit übergabe einer Nachricht sowie einer verursachenden Exception
+        /// Konstruktor zur Regelverletung mit Ã¼bergabe einer Nachricht sowie einer verursachenden Exception
         /// </summary>
         /// <param name="message">Beschreibung zum Problem</param>
         /// <param name="innerException">Verursachende Exception</param>
         public RuleViolationException(string message, Exception innerException) : base(message, innerException) { }
 
         /// <summary>
-        /// Konstruktor für die Serialisierung dieser Exception
+        /// Konstruktor fÃ¼r die Serialisierung dieser Exception
         /// </summary>
         /// <param name="info"></param>
         /// <param name="context"></param>

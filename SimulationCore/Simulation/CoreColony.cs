@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 
 using AntMe.SharedComponents.States;
@@ -12,7 +12,7 @@ namespace AntMe.Simulation
     /// <author>Wolfgang Gallo (wolfgang@antme.net)</author>
     internal sealed class CoreColony
     {
-        // Die Id des nächsten erzeugten Volkes.
+        // Die Id des nÃ¤chsten erzeugten Volkes.
         private static int nextId = 0;
         private readonly int[] antsInCaste;
         internal readonly List<CoreAnthill> AntHills = new List<CoreAnthill>();
@@ -21,7 +21,7 @@ namespace AntMe.Simulation
         internal readonly List<CoreInsect> EatenInsects = new List<CoreInsect>();
 
         /// <summary>
-        /// Die Id die das Volk während eines laufenden Spiels idenzifiziert.
+        /// Die Id die das Volk wÃ¤hrend eines laufenden Spiels idenzifiziert.
         /// </summary>
         public int Id { get; private set; }
 
@@ -44,22 +44,22 @@ namespace AntMe.Simulation
 
         internal int BreiteI;
         internal int BreiteI2;
-        internal int HöheI;
-        internal int HöheI2;
+        internal int HÃ¶heI;
+        internal int HÃ¶heI2;
         internal CorePlayground Playground;
 
         internal PlayerStatistics Statistik = new PlayerStatistics();
         internal PlayerStatistics StatistikDurchschnitt = new PlayerStatistics();
 
         /// <summary>
-        /// Zählt die Anzahl an Runden herunter, bis wieder eine neus Insekt erzeugt
+        /// ZÃ¤hlt die Anzahl an Runden herunter, bis wieder eine neus Insekt erzeugt
         /// werden kann.
         /// </summary>
         internal int insectDelay = 0;
 
         internal int insectCountDown;
 
-        #region Fähigkeiten
+        #region FÃ¤higkeiten
 
         /// <summary>
         /// Die Angriffswerte aller Kasten des Volkes.
@@ -67,7 +67,7 @@ namespace AntMe.Simulation
         internal readonly int[] Angriff;
 
         /// <summary>
-        /// Gitter für die verschiedenen Sichtweiten.
+        /// Gitter fÃ¼r die verschiedenen Sichtweiten.
         /// </summary>
         internal readonly Grid<CoreInsect>[] Grids;
 
@@ -117,7 +117,7 @@ namespace AntMe.Simulation
             // Die Klasse ist in diesem Fall bereits bekannt.
             Klasse = typeof(CoreBug);
 
-            //TODO: Werte überprüfen.
+            //TODO: Werte Ã¼berprÃ¼fen.
             GeschwindigkeitI = new int[1] { SimulationSettings.Custom.BugSpeed * SimulationEnvironment.PLAYGROUND_UNIT };
             Drehgeschwindigkeit = new int[1] { SimulationSettings.Custom.BugRotationSpeed };
             ReichweiteI = new int[1] { int.MaxValue };
@@ -141,8 +141,8 @@ namespace AntMe.Simulation
         /// Erzeugt eine neue Instanz der Volk-Klasse. Erzeugt ein Ameisen-Volk.
         /// </summary>
         /// <param name="spielfeld">Das Spielfeld.</param>
-        /// <param name="spieler">Das Spieler zu dem das Volk gehört.</param>
-        /// <param name="team">Das dazugehörige Team.</param>
+        /// <param name="spieler">Das Spieler zu dem das Volk gehÃ¶rt.</param>
+        /// <param name="team">Das dazugehÃ¶rige Team.</param>
         internal CoreColony(CorePlayground spielfeld, PlayerInfo spieler, CoreTeam team)
         {
             InitPlayground(spielfeld);
@@ -196,9 +196,9 @@ namespace AntMe.Simulation
         {
             Playground = spielfeld;
             BreiteI = spielfeld.Width * SimulationEnvironment.PLAYGROUND_UNIT;
-            HöheI = spielfeld.Height * SimulationEnvironment.PLAYGROUND_UNIT;
+            HÃ¶heI = spielfeld.Height * SimulationEnvironment.PLAYGROUND_UNIT;
             BreiteI2 = BreiteI * 2;
-            HöheI2 = HöheI * 2;
+            HÃ¶heI2 = HÃ¶heI * 2;
 
             
 
@@ -299,10 +299,10 @@ namespace AntMe.Simulation
                 info.AntStates.Add(((CoreAnt)Insects[index]).ErzeugeInfo());
             }
 
-            // Markierungen ist ein Bucket und die Bucket Klasse enthält keinen
-            // Indexer. Daher können wir hier keine for Schleife verwenden, wie eben
+            // Markierungen ist ein Bucket und die Bucket Klasse enthÃ¤lt keinen
+            // Indexer. Daher kÃ¶nnen wir hier keine for Schleife verwenden, wie eben
             // bei den Bauten und den Ameisen. Daher benutzen wir eine foreach
-            // Schleife für die wir eine extra Laufvariable benötigen.
+            // Schleife fÃ¼r die wir eine extra Laufvariable benÃ¶tigen.
             foreach (CoreMarker markierung in Marker)
             {
                 info.MarkerStates.Add(markierung.ErzeugeInfo());

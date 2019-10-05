@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Xna.Framework;
@@ -232,7 +232,7 @@ namespace AntMe.Plugin.Xna
             Pickray pickray = camera.Pickray;
             Point mousePosition = camera.MousePosition;
 
-            // Selektionsinfos zur�cksetzen
+            // Selektionsinfos zurücksetzen
             selectedItem.SelectionType = SelectionType.Nothing;
             selectedItem.Item = null;
             float distanceToSelectedItem = VIEWRANGE_MAX * VIEWRANGE_MAX;

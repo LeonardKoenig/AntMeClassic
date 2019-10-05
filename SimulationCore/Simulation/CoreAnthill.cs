@@ -1,4 +1,4 @@
-using AntMe.SharedComponents.States;
+Ôªøusing AntMe.SharedComponents.States;
 
 namespace AntMe.Simulation
 {
@@ -8,11 +8,11 @@ namespace AntMe.Simulation
     /// <author>Wolfgang Gallo (wolfgang@antme.net)</author>
     internal sealed class CoreAnthill : ICoordinate
     {
-        // Die Id des n‰chsten erzeugten Bau.
+        // Die Id des n√§chsten erzeugten Bau.
         private static int neueId = 0;
 
         /// <summary>
-        /// Die Id die den Bau w‰hrend eines Spiels eindeutig identifiziert.
+        /// Die Id die den Bau w√§hrend eines Spiels eindeutig identifiziert.
         /// </summary>
         public readonly int Id;
 

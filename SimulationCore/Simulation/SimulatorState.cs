@@ -1,7 +1,7 @@
-namespace AntMe.Simulation
+﻿namespace AntMe.Simulation
 {
     /// <summary>
-    /// Liste der m�glichen Stati eines Simulators
+    /// Liste der möglichen Stati eines Simulators
     /// </summary>
     public enum SimulatorState
     {

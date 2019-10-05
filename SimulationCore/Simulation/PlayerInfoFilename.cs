@@ -1,9 +1,9 @@
-using System;
+﻿using System;
 
 namespace AntMe.Simulation
 {
     /// <summary>
-    /// Spielerinfo mit zus�tzlicher Angabe eines Dateinamens
+    /// Spielerinfo mit zusätzlicher Angabe eines Dateinamens
     /// </summary>
     [Serializable]
     public sealed class PlayerInfoFilename : PlayerInfo

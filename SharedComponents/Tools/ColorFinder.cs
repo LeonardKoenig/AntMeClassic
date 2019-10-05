@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Drawing;
 
@@ -10,24 +10,24 @@ namespace AntMe.SharedComponents.Tools {
     /// </summary>
     /// <remarks>
     /// Diese Struktur wurde definiert um von den in Windows Forms und Managed
-    /// DirectX definierten Farben unabhängig zu sein. Zusätzlich können Farben
+    /// DirectX definierten Farben unabhÃ¤ngig zu sein. ZusÃ¤tzlich kÃ¶nnen Farben
     /// durch die Verwendung dieser Struktur gemischt werden.
     /// </remarks>
     /// <author>Wolfgang Gallo (wolfgang@antme.net)</author>
     public struct Farbe {
         private int blau;
-        private int grün;
+        private int grÃ¼n;
         private int rot;
 
         /// <summary>
         /// Der Farbe Konstruktor.
         /// </summary>
         /// <param name="rot">Rot-Wert</param>
-        /// <param name="grün">Grün-Wert</param>
+        /// <param name="grÃ¼n">GrÃ¼n-Wert</param>
         /// <param name="blau">Blau-Wert</param>
-        public Farbe(int rot, int grün, int blau) {
+        public Farbe(int rot, int grÃ¼n, int blau) {
             this.rot = rot;
-            this.grün = grün;
+            this.grÃ¼n = grÃ¼n;
             this.blau = blau;
         }
 
@@ -40,11 +40,11 @@ namespace AntMe.SharedComponents.Tools {
         }
 
         /// <summary>
-        /// Der Grün-Wert der Farbe.
+        /// Der GrÃ¼n-Wert der Farbe.
         /// </summary>
-        public byte Grün {
-            get { return grün < 0 ? (byte) 0 : grün > 255 ? (byte) 255 : (byte) grün; }
-            set { grün = value; }
+        public byte GrÃ¼n {
+            get { return grÃ¼n < 0 ? (byte) 0 : grÃ¼n > 255 ? (byte) 255 : (byte) grÃ¼n; }
+            set { grÃ¼n = value; }
         }
 
         /// <summary>
@@ -56,24 +56,24 @@ namespace AntMe.SharedComponents.Tools {
         }
 
         /// <summary>
-        /// Gibt die Farbe als Zeichenkette zurück.
+        /// Gibt die Farbe als Zeichenkette zurÃ¼ck.
         /// </summary>
-        /// <returns>(Rot,Grün,Blau)</returns>
+        /// <returns>(Rot,GrÃ¼n,Blau)</returns>
         public override string ToString() {
-            return "(" + Rot + "," + Grün + "," + Blau + ")";
+            return "(" + Rot + "," + GrÃ¼n + "," + Blau + ")";
         }
 
         /// <summary>
         /// Addiert die RGB-Werte zweier Farben.
         /// </summary><remarks>
-        /// Um zwei Farben zu mischen muß zusätzlich eine Division durchgeführt
+        /// Um zwei Farben zu mischen muÃŸ zusÃ¤tzlich eine Division durchgefÃ¼hrt
         /// werden: (farbe1 + farbe2) / 2.
         /// </remarks>
         /// <param name="f1">Farbe 1</param>
         /// <param name="f2">Farbe 2</param>
         /// <returns>Farbe</returns>
         public static Farbe operator +(Farbe f1, Farbe f2) {
-            return new Farbe(f1.rot + f2.rot, f1.grün + f2.grün, f1.blau + f2.blau);
+            return new Farbe(f1.rot + f2.rot, f1.grÃ¼n + f2.grÃ¼n, f1.blau + f2.blau);
         }
 
         /// <summary>
@@ -83,7 +83,7 @@ namespace AntMe.SharedComponents.Tools {
         /// <param name="i">Zahl</param>
         /// <returns>Farbe</returns>
         public static Farbe operator *(Farbe f, int i) {
-            return new Farbe(f.rot*i, f.grün*i, f.blau*i);
+            return new Farbe(f.rot*i, f.grÃ¼n*i, f.blau*i);
         }
 
         /// <summary>
@@ -93,28 +93,28 @@ namespace AntMe.SharedComponents.Tools {
         /// <param name="i">Zahl</param>
         /// <returns>Farbe</returns>
         public static Farbe operator /(Farbe f, int i) {
-            return new Farbe(f.rot/i, f.grün/i, f.blau/i);
+            return new Farbe(f.rot/i, f.grÃ¼n/i, f.blau/i);
         }
 
         /// <summary>
-        /// Bestimmt ein Abstand-Maß zwischen zwei Farben im RGB-Farbraum.
+        /// Bestimmt ein Abstand-MaÃŸ zwischen zwei Farben im RGB-Farbraum.
         /// </summary><remarks>
         /// Wird von der Farbberater-Klasse verwendet.
         /// </remarks>
         /// <param name="f1">Farbe 1</param>
         /// <param name="f2">Farbe 2</param>
-        /// <returns>Abstand²</returns>
+        /// <returns>AbstandÂ²</returns>
         public static int operator -(Farbe f1, Farbe f2) {
             int deltaRot = f1.rot - f2.rot;
-            int deltaGrün = f1.grün - f2.grün;
+            int deltaGrÃ¼n = f1.grÃ¼n - f2.grÃ¼n;
             int deltaBlau = f1.blau - f2.blau;
-            return deltaRot*deltaRot + deltaGrün*deltaGrün + deltaBlau*deltaBlau;
-            //return Math.Abs(deltaRot) + Math.Abs(deltaGrün) + Math.Abs(deltaBlau);
+            return deltaRot*deltaRot + deltaGrÃ¼n*deltaGrÃ¼n + deltaBlau*deltaBlau;
+            //return Math.Abs(deltaRot) + Math.Abs(deltaGrÃ¼n) + Math.Abs(deltaBlau);
         }
     }
 
     /// <summary>
-    /// Liefert Farben die sie möglichst stark voneinander Unterscheiden.
+    /// Liefert Farben die sie mÃ¶glichst stark voneinander Unterscheiden.
     /// </summary>
     /// <author>Wolfgang Gallo (wolfgang@antme.net)</author>
     public class ColorFinder {
@@ -180,7 +180,7 @@ namespace AntMe.SharedComponents.Tools {
         }
 
         /// <summary>
-        /// Erzeugt eine neue Farbe mit möglichst großem Abstand zu den bereits
+        /// Erzeugt eine neue Farbe mit mÃ¶glichst groÃŸem Abstand zu den bereits
         /// vorhandenen Farben.
         /// </summary>
         /// <returns>Neue Farbe.</returns>
@@ -225,8 +225,8 @@ namespace AntMe.SharedComponents.Tools {
         }
 
         /// <summary>
-        /// Erzeugt eine neue Farbe mit möglichst großem Abstand zu den bereits
-        /// vorhandenen Farben und verändert sie leicht.
+        /// Erzeugt eine neue Farbe mit mÃ¶glichst groÃŸem Abstand zu den bereits
+        /// vorhandenen Farben und verÃ¤ndert sie leicht.
         /// </summary>
         /// <returns>Neue Farbe.</returns>
         public Farbe ErzeugeFarbe(int streuung) {
@@ -236,12 +236,12 @@ namespace AntMe.SharedComponents.Tools {
                 new Farbe
                     (
                     (farbe.Rot*100)/(100 + zufall.Next(-streuung, streuung)),
-                    (farbe.Grün*100)/(100 + zufall.Next(-streuung, streuung)),
+                    (farbe.GrÃ¼n*100)/(100 + zufall.Next(-streuung, streuung)),
                     (farbe.Blau*100)/(100 + zufall.Next(-streuung, streuung)));
         }
 
         /// <summary>
-        /// Erzeugt eine neue Farbe mit möglichst großem Abstand zu den bereits
+        /// Erzeugt eine neue Farbe mit mÃ¶glichst groÃŸem Abstand zu den bereits
         /// vorhandenen Farben und markiert sie als belegt.
         /// </summary>
         /// <returns>Neue Farbe.</returns>
@@ -252,8 +252,8 @@ namespace AntMe.SharedComponents.Tools {
         }
 
         /// <summary>
-        /// Erzeugt eine neue Farbe mit möglichst großem Abstand zu den bereits
-        /// vorhandenen Farben, verändert sie leicht und markiert sie als belegt.
+        /// Erzeugt eine neue Farbe mit mÃ¶glichst groÃŸem Abstand zu den bereits
+        /// vorhandenen Farben, verÃ¤ndert sie leicht und markiert sie als belegt.
         /// </summary>
         /// <returns>Neue Farbe.</returns>
         public Farbe ErzeugeUndBelegeFarbe(int streuung) {

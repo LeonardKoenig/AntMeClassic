@@ -1,4 +1,4 @@
-using AntMe.Deutsch;
+ï»¿using AntMe.Deutsch;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,7 +38,7 @@ namespace AntMe.Player.{2}
         {
         }
 
-        public override void WirdMüde()
+        public override void WirdMÃ¼de()
         {
         }
 
@@ -82,7 +82,7 @@ namespace AntMe.Player.{2}
         {
         }
 
-        public override void SiehtVerbündeten(Ameise ameise)
+        public override void SiehtVerbÃ¼ndeten(Ameise ameise)
         {
         }
 

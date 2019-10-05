@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 
 namespace AntMe.Simulation
@@ -100,7 +100,7 @@ namespace AntMe.Simulation
                     if (zucker.Menge == 0)
                     {
                         //gemerkterZucker.Add(zucker);
-                        //Löschen
+                        //LÃ¶schen
                         Playground.EntferneZucker(zucker);
                         i--;
                     }
@@ -187,7 +187,7 @@ namespace AntMe.Simulation
                         {
                             //gemerktesObst.Add(obst);
 
-                            // Löschen
+                            // LÃ¶schen
                             colony.Statistik.CollectedFood += obst.Menge;
                             colony.Statistik.CollectedFruits++;
                             obst.Menge = 0;
@@ -223,7 +223,7 @@ namespace AntMe.Simulation
         private int antLimit;
 
         /// <summary>
-        /// Prüft ob eine Ameise an ihrem Ziel angekommen ist.
+        /// PrÃ¼ft ob eine Ameise an ihrem Ziel angekommen ist.
         /// </summary>
         /// <param name="ant">betroffene Ameise</param>
         private static void ameiseUndZiel(CoreAnt ant)
@@ -233,13 +233,13 @@ namespace AntMe.Simulation
             {
                 if (ant.GetragenesObstBase == null)
                 {
-                    ant.ZurückgelegteStreckeI = 0;
+                    ant.ZurÃ¼ckgelegteStreckeI = 0;
                     ant.ZielBase = null;
                     ant.SmelledMarker.Clear();
                     ant.colony.Statistik.CollectedFood += ant.AktuelleLastBase;
                     ant.AktuelleLastBase = 0;
                     ant.AktuelleEnergieBase = ant.MaximaleEnergieBase;
-                    ant.IstMüdeBase = false;
+                    ant.IstMÃ¼deBase = false;
                 }
             }
 
@@ -254,7 +254,7 @@ namespace AntMe.Simulation
                 }
             }
 
-              // Obststück.
+              // ObststÃ¼ck.
             else if (ant.ZielBase is CoreFruit)
             {
                 CoreFruit obst = (CoreFruit)ant.ZielBase;
@@ -276,7 +276,7 @@ namespace AntMe.Simulation
         }
 
         /// <summary>
-        /// Prüft ob eine Ameise einen Zuckerhaufen sieht.
+        /// PrÃ¼ft ob eine Ameise einen Zuckerhaufen sieht.
         /// </summary>
         /// <param name="ant">betroffene Ameise</param>
         private void ameiseUndZucker(CoreAnt ant)
@@ -293,7 +293,7 @@ namespace AntMe.Simulation
         }
 
         /// <summary>
-        /// Prüft ob eine Ameise ein Obsstück sieht.
+        /// PrÃ¼ft ob eine Ameise ein ObsstÃ¼ck sieht.
         /// </summary>
         /// <param name="ameise">betroffene Ameise</param>
         private void ameiseUndObst(CoreAnt ameise)
@@ -310,7 +310,7 @@ namespace AntMe.Simulation
         }
 
         /// <summary>
-        /// Prüft ob die Ameise eine Markierung bemerkt.
+        /// PrÃ¼ft ob die Ameise eine Markierung bemerkt.
         /// </summary>
         /// <param name="ameise">betroffene Ameise</param>
         private static void ameiseUndMarkierungen(CoreAnt ameise)
@@ -404,7 +404,7 @@ namespace AntMe.Simulation
             colony.insectDelay--;
         }
 
-        // Bewegt Obsstücke und alle Insekten die das Obsstück tragen.
+        // Bewegt ObsstÃ¼cke und alle Insekten die das ObsstÃ¼ck tragen.
         private void bewegeObstUndInsekten()
         {
             Playground.Fruits.ForEach(delegate(CoreFruit fruit)
@@ -472,8 +472,8 @@ namespace AntMe.Simulation
         /// <param name="colony">betroffenes Volk</param>
         private static void aktualisiereMarkierungen(CoreColony colony)
         {
-            // TODO: Settings berücksichtigen
-            // Markierungen aktualisieren und inaktive Markierungen löschen.
+            // TODO: Settings berÃ¼cksichtigen
+            // Markierungen aktualisieren und inaktive Markierungen lÃ¶schen.
             List<CoreMarker> gemerkteMarkierungen = new List<CoreMarker>();
 
             foreach (CoreMarker markierung in colony.Marker)
@@ -500,7 +500,7 @@ namespace AntMe.Simulation
             });
             colony.Marker.Remove(gemerkteMarkierungen);
 
-            // Neue Markierungen überprüfen und hinzufügen.
+            // Neue Markierungen Ã¼berprÃ¼fen und hinzufÃ¼gen.
             gemerkteMarkierungen.Clear();
             colony.NewMarker.ForEach(delegate(CoreMarker newMarker)
             {

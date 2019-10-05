@@ -1,15 +1,15 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using AntMe.Deutsch;
 
 namespace AntMe.Spieler.TomWendel
 {
 
 	/// <summary>
-	/// Demoameise die sich ausschließlich mit der Bekämpfung von gegnerischen
-	/// Käfern beschäftigt. Eine Ameise die einen Käfer sieht holt sofort mit
-	/// einem großen Markierungs-Ping möglichst viel Hilfe aus der Umgebung. Nach
+	/// Demoameise die sich ausschlieÃŸlich mit der BekÃ¤mpfung von gegnerischen
+	/// KÃ¤fern beschÃ¤ftigt. Eine Ameise die einen KÃ¤fer sieht holt sofort mit
+	/// einem groÃŸen Markierungs-Ping mÃ¶glichst viel Hilfe aus der Umgebung. Nach
 	/// einiger Zeit bilden sich dadurch kleine Jagdrudel die sehr effizient
-	/// Käfer töten
+	/// KÃ¤fer tÃ¶ten
 	/// </summary>
 
 	[Spieler(
@@ -51,8 +51,8 @@ namespace AntMe.Spieler.TomWendel
 		/// </summary>
 		public override void Wartet()
 		{
-			// Ameise soll möglichst gut gestreut aber ziellos umherirren um möglichst
-			// schnell Käfer zu finden.
+			// Ameise soll mÃ¶glichst gut gestreut aber ziellos umherirren um mÃ¶glichst
+			// schnell KÃ¤fer zu finden.
 			GeheGeradeaus(40);
 			DreheUmWinkel(Zufall.Zahl(-10, 10));
 		}
@@ -64,13 +64,13 @@ namespace AntMe.Spieler.TomWendel
 		/// Wird wiederholt aufgerufen in der die Ameise mindestens eine
 		/// Markierung des selben Volkes riecht.
 		/// </summary>
-		/// <param name="markierung">Die nächstgelegene neue Markierung.</param>
+		/// <param name="markierung">Die nÃ¤chstgelegene neue Markierung.</param>
 		public override void RiechtFreund(Markierung markierung)
 		{
-			// Die Ameise soll, sofern sie nicht schon ein Ziel wie "Käfer",
+			// Die Ameise soll, sofern sie nicht schon ein Ziel wie "KÃ¤fer",
 			// "Markierung" oder "Bau" hat auf direktem Weg zum Markierungsmittelpunkt
 			// laufen von wo aus man hoffentlich weitere Markierungen oder direkt den
-			// Käfer sieht.
+			// KÃ¤fer sieht.
 			if (Ziel == null)
 			{
 				GeheZuZiel(markierung);
@@ -81,17 +81,17 @@ namespace AntMe.Spieler.TomWendel
 		#region Kampf
 
 		/// <summary>
-		/// Wird wiederholt aufgerufen, wenn die Ameise mindestens einen Käfer
+		/// Wird wiederholt aufgerufen, wenn die Ameise mindestens einen KÃ¤fer
 		/// sieht.
 		/// </summary>
-		/// <param name="wanze">Der nächstgelegene Käfer.</param>
+		/// <param name="wanze">Der nÃ¤chstgelegene KÃ¤fer.</param>
 		public override void SiehtFeind(Wanze wanze)
 		{
-			// Wenn ein Käfer gesehen wird muss eine angemessen große Markierung
-			// gesprüht werden. Ist diese Markierung zu klein kommt zu wenig Hilfe,
-			// ist sie zu groß haben die weit entfernten Ameisen eine zu große Strecke
+			// Wenn ein KÃ¤fer gesehen wird muss eine angemessen groÃŸe Markierung
+			// gesprÃ¼ht werden. Ist diese Markierung zu klein kommt zu wenig Hilfe,
+			// ist sie zu groÃŸ haben die weit entfernten Ameisen eine zu groÃŸe Strecke
 			// und kommen erst nach dem Kampf an.
-			SprüheMarkierung(0, 150);
+			SprÃ¼heMarkierung(0, 150);
 			GreifeAn(wanze);
 		}
 
@@ -99,7 +99,7 @@ namespace AntMe.Spieler.TomWendel
 		/// Wird wiederholt aufgerufen, wenn die Ameise mindestens eine Ameise eines
 		/// anderen Volkes sieht.
 		/// </summary>
-		/// <param name="ameise">Die nächstgelegen feindliche Ameise.</param>
+		/// <param name="ameise">Die nÃ¤chstgelegen feindliche Ameise.</param>
 		public override void SiehtFeind(Ameise ameise)
 		{
             // Feindliche Ameisen werden bedingungslos angegriffen!
@@ -107,13 +107,13 @@ namespace AntMe.Spieler.TomWendel
 		}
 
 		/// <summary>
-		/// Wird wiederholt aufgerufen, wenn die Ameise von einem Käfer angegriffen
+		/// Wird wiederholt aufgerufen, wenn die Ameise von einem KÃ¤fer angegriffen
 		/// wird.
 		/// </summary>
-		/// <param name="wanze">Der angreifende Käfer.</param>
+		/// <param name="wanze">Der angreifende KÃ¤fer.</param>
 		public override void WirdAngegriffen(Wanze wanze)
 		{
-			// Wenn der Käfer angreift: Zurückschlagen.
+			// Wenn der KÃ¤fer angreift: ZurÃ¼ckschlagen.
 			GreifeAn(wanze);
 		}
 
@@ -123,10 +123,10 @@ namespace AntMe.Spieler.TomWendel
 		public override void Tick()
 		{
 
-			// Sollte die Ameise am Ende ihrer Reichweite sein (Abzüglich einem Puffer
-			// und der Strecke die sie noch zum Bau zurücklegen muss) soll sie nach
+			// Sollte die Ameise am Ende ihrer Reichweite sein (AbzÃ¼glich einem Puffer
+			// und der Strecke die sie noch zum Bau zurÃ¼cklegen muss) soll sie nach
 			// Hause gehen um aufzuladen.
-			if (Reichweite - ZurückgelegteStrecke - 100 <
+			if (Reichweite - ZurÃ¼ckgelegteStrecke - 100 <
 				EntfernungZuBau)
 			{
 				GeheZuBau();

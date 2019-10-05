@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Security;
 using System.Security.Permissions;
 
@@ -60,11 +60,11 @@ namespace AntMe.Simulation
             ant.NimmBefehleEntgegen = true;
             try
             {
-                ant.WirdMüdeBase();
+                ant.WirdMÃ¼deBase();
             }
             catch (Exception ex)
             {
-                throw new AiException(string.Format("{0}: KI-Fehler in der WirdMüde()-Methode", ant.colony.Player.Guid), ex);
+                throw new AiException(string.Format("{0}: KI-Fehler in der WirdMÃ¼de()-Methode", ant.colony.Player.Guid), ex);
             }
             ant.NimmBefehleEntgegen = false;
             AreaChanged(
@@ -243,11 +243,11 @@ namespace AntMe.Simulation
             ant.NimmBefehleEntgegen = true;
             try
             {
-                ant.SiehtVerbündetenBase(friend);
+                ant.SiehtVerbÃ¼ndetenBase(friend);
             }
             catch (Exception ex)
             {
-                throw new AiException(string.Format("{0}: KI-Fehler in der SiehtVerbündeten(Ameise)-Methode", ant.colony.Player.Guid), ex);
+                throw new AiException(string.Format("{0}: KI-Fehler in der SiehtVerbÃ¼ndeten(Ameise)-Methode", ant.colony.Player.Guid), ex);
             }
 
             ant.NimmBefehleEntgegen = false;

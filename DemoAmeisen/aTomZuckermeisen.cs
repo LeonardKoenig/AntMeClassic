@@ -1,15 +1,15 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using AntMe.Deutsch;
 
 namespace AntMe.Spieler.TomWendel
 {
 
     /// <summary>
-    /// Demonstrationsameise die sich nur mit dem Sammeln von Zucker beschäftigt.
-    /// Strategie dieser Ameise ist die möglichst schnelle Publikation neuer
-    /// Zuckerhaufen um dort durch effiziente Ameisenstraßen alle restlichen
-    /// Ameisen für den Zuckertransport zu binden. Obst wird komplett ignoriert
-    /// und Käfern wird ausgewichen.
+    /// Demonstrationsameise die sich nur mit dem Sammeln von Zucker beschÃ¤ftigt.
+    /// Strategie dieser Ameise ist die mÃ¶glichst schnelle Publikation neuer
+    /// Zuckerhaufen um dort durch effiziente AmeisenstraÃŸen alle restlichen
+    /// Ameisen fÃ¼r den Zuckertransport zu binden. Obst wird komplett ignoriert
+    /// und KÃ¤fern wird ausgewichen.
     /// </summary>
 
     [Spieler(
@@ -52,7 +52,7 @@ namespace AntMe.Spieler.TomWendel
         public override void Wartet()
         {
 
-            // Sollte die Ameise außerhalb des Nahrungsmittelradiuses liegen...
+            // Sollte die Ameise auÃŸerhalb des Nahrungsmittelradiuses liegen...
             if (EntfernungZuBau > 400)
             {
                 // ... soll sie wieder heim gehen.
@@ -60,15 +60,15 @@ namespace AntMe.Spieler.TomWendel
             }
             else
             {
-                // ... ansonsten soll sie sich ein bischen drehen (zufälliger Winkel
+                // ... ansonsten soll sie sich ein bischen drehen (zufÃ¤lliger Winkel
                 // zwischen -10 und 10 Grad) und wieder ein paar Schritte laufen.
                 DreheUmWinkel(Zufall.Zahl(-10, 10));
                 GeheGeradeaus(20);
             }
 
-            // Wenn die restliche verfügbare Strecke der Ameise (minus einem Puffer
+            // Wenn die restliche verfÃ¼gbare Strecke der Ameise (minus einem Puffer
             // von 50 Schritten) kleiner als die Entfernung zum Bau ist...
-            if (Reichweite - ZurückgelegteStrecke - 50 < EntfernungZuBau)
+            if (Reichweite - ZurÃ¼ckgelegteStrecke - 50 < EntfernungZuBau)
             {
                 // ... soll sie nach Hause gehen um nicht zu sterben.
                 GeheZuBau();
@@ -83,21 +83,21 @@ namespace AntMe.Spieler.TomWendel
         /// Wird wiederholt aufgerufen, wenn die Ameise mindestens einen
         /// Zuckerhaufen sieht.
         /// </summary>
-        /// <param name="zucker">Der nächstgelegene Zuckerhaufen.</param>
+        /// <param name="zucker">Der nÃ¤chstgelegene Zuckerhaufen.</param>
         public override void Sieht(Zucker zucker)
         {
 
-            // Wenn Zucker in der Nähe ist soll eine Markierung gesprüht werden. Der
+            // Wenn Zucker in der NÃ¤he ist soll eine Markierung gesprÃ¼ht werden. Der
             // Radius dieser Markierung richtet sich nach der Entfernung der Ameise
-            // zum Zucker damit die Markierung nicht über den Zucker hinaus zeigt.
-            SprüheMarkierung(
+            // zum Zucker damit die Markierung nicht Ã¼ber den Zucker hinaus zeigt.
+            SprÃ¼heMarkierung(
                     Koordinate.BestimmeRichtung(this, zucker),
                     Koordinate.BestimmeEntfernung(this, zucker));
 
             // Gebe Debug-Nachricht aus
             Denke("Wow! Zucker!");
 
-            // Wenn die Ameise nichts trägt soll sie zum Zucker hin.
+            // Wenn die Ameise nichts trÃ¤gt soll sie zum Zucker hin.
             if (AktuelleLast == 0)
             {
                 GeheZuZiel(zucker);
@@ -125,7 +125,7 @@ namespace AntMe.Spieler.TomWendel
         /// Volkes riecht. Einmal gerochene Markierungen werden nicht erneut
         /// gerochen.
         /// </summary>
-        /// <param name="markierung">Die nächste neue Markierung.</param>
+        /// <param name="markierung">Die nÃ¤chste neue Markierung.</param>
         public override void RiechtFreund(Markierung markierung)
         {
             // Auf Markierungen wird nur reagiert, wenn das Ziel nicht der Bau oder
@@ -133,17 +133,17 @@ namespace AntMe.Spieler.TomWendel
             if (!(Ziel is Zucker) && !(Ziel is Bau))
             {
 
-                // Die Richtung aus der Markierung auslesen und über die doppelte
+                // Die Richtung aus der Markierung auslesen und Ã¼ber die doppelte
                 // Sichtweite loslaufen.
                 DreheInRichtung(markierung.Information);
                 GeheGeradeaus(Sichtweite * 2);
 
                 // Sollte die Entfernung mehr als 50 schritte zum Mittelpunkt betragen
-                // soll eine Folgemarkierung gesprüht werden um denn Effektradius zu
-                // erhöhen.
+                // soll eine Folgemarkierung gesprÃ¼ht werden um denn Effektradius zu
+                // erhÃ¶hen.
                 if (Koordinate.BestimmeEntfernung(this, markierung) > 50)
                 {
-                    SprüheMarkierung(
+                    SprÃ¼heMarkierung(
                             Koordinate.BestimmeRichtung(this, markierung),
                             Koordinate.BestimmeEntfernung(this, markierung));
                 }
@@ -154,20 +154,20 @@ namespace AntMe.Spieler.TomWendel
         #region Kampf
 
         /// <summary>
-        /// Wird wiederholt aufgerufen, wenn die Ameise mindestens einen Käfer
+        /// Wird wiederholt aufgerufen, wenn die Ameise mindestens einen KÃ¤fer
         /// sieht.
         /// </summary>
-        /// <param name="wanze">Der nächstgelegene Käfer.</param>
+        /// <param name="wanze">Der nÃ¤chstgelegene KÃ¤fer.</param>
         public override void SiehtFeind(Wanze wanze)
         {
-            // Bei Käfersicht wird ermittelt ob die Ameise evtl. kollidiert, wenn sie
+            // Bei KÃ¤fersicht wird ermittelt ob die Ameise evtl. kollidiert, wenn sie
             // geradeaus weitergeht.
             int relativeRichtung =
                 Koordinate.BestimmeRichtung(this, wanze) - Richtung;
             if (relativeRichtung > -15 && relativeRichtung < 15)
             {
                 // Wenn ja, soll sie erstmal die Nahrung fallen lassen um schneller zu
-                // laufen und dann, je nachdem auf welcher Seite der Käfer ist, in einem
+                // laufen und dann, je nachdem auf welcher Seite der KÃ¤fer ist, in einem
                 // 20 Grad-Winkel in die andere Richtung weggehen.
                 LasseNahrungFallen();
                 if (relativeRichtung < 0)
@@ -186,26 +186,26 @@ namespace AntMe.Spieler.TomWendel
         #region Sonstiges
 
         /// <summary>
-        /// Wird unabhängig von äußeren Umständen in jeder Runde aufgerufen.
+        /// Wird unabhÃ¤ngig von Ã¤uÃŸeren UmstÃ¤nden in jeder Runde aufgerufen.
         /// </summary>
         public override void Tick()
         {
             // Sollte die Ameise gerade mit Nahrung unterwegs sein...
             if (Ziel != null && AktuelleLast > 0)
             {
-                // ... Ist die Ameise näher als 100 Schritte am Zeil werden die
-                // Markierungen stetig größer um die Ameisen abzugreifen die am anderen
+                // ... Ist die Ameise nÃ¤her als 100 Schritte am Zeil werden die
+                // Markierungen stetig grÃ¶ÃŸer um die Ameisen abzugreifen die am anderen
                 // Ende des Baus weglaufen.
                 if (Koordinate.BestimmeEntfernung(this, Ziel) < 100)
                 {
-                    SprüheMarkierung(Koordinate.BestimmeRichtung(Ziel, this),
+                    SprÃ¼heMarkierung(Koordinate.BestimmeRichtung(Ziel, this),
                         100 - Koordinate.BestimmeEntfernung(Ziel, this));
                 }
                 else
                 {
-                    // ... ansonsten eine möglichst dünne Ameisenstraße um präzise genug
-                    // leiten zu können.
-                    SprüheMarkierung(Koordinate.BestimmeRichtung(Ziel, this), 20);
+                    // ... ansonsten eine mÃ¶glichst dÃ¼nne AmeisenstraÃŸe um prÃ¤zise genug
+                    // leiten zu kÃ¶nnen.
+                    SprÃ¼heMarkierung(Koordinate.BestimmeRichtung(Ziel, this), 20);
                 }
             }
         }

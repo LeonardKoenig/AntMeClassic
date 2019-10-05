@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading;
@@ -57,7 +57,7 @@ namespace AntMe.Gui
             Task t = new Task(() => { PlayerStore.Instance.ToString(); });
             t.Start();
 
-            // Prüfe auf Updates
+            // PrÃ¼fe auf Updates
             t = new Task(BackgroundUpdateCheck);
             t.Start();
 
@@ -440,7 +440,7 @@ namespace AntMe.Gui
 
         private void button_offlineHelp(object sender, EventArgs e)
         {
-            // Es wurde Hilfe angefordert. Hier wird geprüft ob eine Hilfe verfügbar ist
+            // Es wurde Hilfe angefordert. Hier wird geprÃ¼ft ob eine Hilfe verfÃ¼gbar ist
             if (File.Exists(Resource.MainTutorialPath))
             {
                 Help.ShowHelp(this, Resource.MainTutorialPath);

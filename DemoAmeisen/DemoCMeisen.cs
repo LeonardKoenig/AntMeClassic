@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using AntMe.Deutsch;
 
 namespace AntMe.Spieler.WolfgangGallo
@@ -7,7 +7,7 @@ namespace AntMe.Spieler.WolfgangGallo
 	/// <summary>
 	/// Demoameisen, die sich auf das Sammeln von Zucker und das Verteidigen von
 	/// Zuckeraufen spezialisiert. Es gibt Kundschafter, die Zuckerhaufen
-	/// auskundschaften und Markierungen sprühen, die zum Zucker hin weisen, 
+	/// auskundschaften und Markierungen sprÃ¼hen, die zum Zucker hin weisen, 
 	/// Sammler, die den Zucker in den Bau tragen und Krieger, die um den
 	/// Zuckerhaufen herum patroullieren und Feinde angreifen.
 	/// </summary>
@@ -66,7 +66,7 @@ namespace AntMe.Spieler.WolfgangGallo
 			if (anzahl["Kundschafter"] < 5)
 				return "Kundschafter";
 
-			// Das Verhältnis von Sammlern zu Kriegern soll 4 zu 1 betragen.
+			// Das VerhÃ¤ltnis von Sammlern zu Kriegern soll 4 zu 1 betragen.
 			if ((anzahl["Sammler"] + anzahl["Krieger"]) % 5 == 0)
 			  return "Krieger";
 			return "Sammler";
@@ -75,10 +75,10 @@ namespace AntMe.Spieler.WolfgangGallo
 
 		#region Fortbewegung
 
-		// Für Kundschafter.
+		// FÃ¼r Kundschafter.
 		private bool stehenbleiben = false;
 
-		// Für Krieger.
+		// FÃ¼r Krieger.
 		private bool verteidigen = false;
 		private int entfernung;
 		private int winkel;
@@ -98,7 +98,7 @@ namespace AntMe.Spieler.WolfgangGallo
 					break;
 
 				case "Sammler":
-					if (IstMüde)
+					if (IstMÃ¼de)
 						GeheZuBau();
 					else
 						GeheGeradeaus();
@@ -119,9 +119,9 @@ namespace AntMe.Spieler.WolfgangGallo
 
 		/// <summary>
 		/// Wird einmal aufgerufen, wenn die Ameise ein Drittel ihrer maximalen
-		/// Reichweite überschritten hat.
+		/// Reichweite Ã¼berschritten hat.
 		/// </summary>
-		public override void WirdMüde()
+		public override void WirdMÃ¼de()
 		{
 			switch (Kaste)
 			{
@@ -150,7 +150,7 @@ namespace AntMe.Spieler.WolfgangGallo
 		/// Wird wiederholt aufgerufen, wenn die Ameise mindestens einen
 		/// Zuckerhaufen sieht.
 		/// </summary>
-		/// <param name="zucker">Der nächstgelegene Zuckerhaufen.</param>
+		/// <param name="zucker">Der nÃ¤chstgelegene Zuckerhaufen.</param>
 		public override void Sieht(Zucker zucker)
 		{
 			switch (Kaste)
@@ -171,7 +171,7 @@ namespace AntMe.Spieler.WolfgangGallo
 						verteidigen = true;
 						int richtung = Koordinate.BestimmeRichtung(this, zucker);
 						entfernung = Koordinate.BestimmeEntfernung(this, zucker) * 3;
-						// Der Winkel führt dazu, daß die Krieger sternförmig um den Zucker
+						// Der Winkel fÃ¼hrt dazu, daÃŸ die Krieger sternfÃ¶rmig um den Zucker
 						// patroullieren.
 						winkel = Zufall.Zahl(180, 215);
 						DreheInRichtung(richtung);
@@ -184,9 +184,9 @@ namespace AntMe.Spieler.WolfgangGallo
 
 		/// <summary>
 		/// Wird wiederholt aufgerufen, wenn die Ameise mindstens ein
-		/// Obststück sieht.
+		/// ObststÃ¼ck sieht.
 		/// </summary>
-		/// <param name="obst">Das nächstgelegene Obststück.</param>
+		/// <param name="obst">Das nÃ¤chstgelegene ObststÃ¼ck.</param>
 		public override void Sieht(Obst obst)
 		{
 		}
@@ -202,7 +202,7 @@ namespace AntMe.Spieler.WolfgangGallo
 			{
 
 				case "Kundschafter":
-					SprüheMarkierung(0, EntfernungZuBau + 40);
+					SprÃ¼heMarkierung(0, EntfernungZuBau + 40);
 					stehenbleiben = true;
 					break;
 
@@ -215,10 +215,10 @@ namespace AntMe.Spieler.WolfgangGallo
 		}
 
 		/// <summary>
-		/// Wird einmal aufgerufen, wenn die Ameise ein Obststück als Ziel hat und
+		/// Wird einmal aufgerufen, wenn die Ameise ein ObststÃ¼ck als Ziel hat und
 		/// bei diesem ankommt.
 		/// </summary>
-		/// <param name="obst">Das Obstück.</param>
+		/// <param name="obst">Das ObstÃ¼ck.</param>
 		public override void ZielErreicht(Obst obst)
 		{
 		}
@@ -231,7 +231,7 @@ namespace AntMe.Spieler.WolfgangGallo
 		/// Volkes riecht. Einmal gerochene Markierungen werden nicht erneut
 		/// gerochen.
 		/// </summary>
-		/// <param name="markierung">Die nächste neue Markierung.</param>
+		/// <param name="markierung">Die nÃ¤chste neue Markierung.</param>
 		public override void RiechtFreund(Markierung markierung)
 		{
 			switch (Kaste)
@@ -259,7 +259,7 @@ namespace AntMe.Spieler.WolfgangGallo
 		/// Wird wiederholt aufgerufen, wenn die Ameise mindstens eine Ameise des
 		/// selben Volkes sieht.
 		/// </summary>
-		/// <param name="ameise">Die nächstgelegene befreundete Ameise.</param>
+		/// <param name="ameise">Die nÃ¤chstgelegene befreundete Ameise.</param>
 		public override void SiehtFreund(Ameise ameise)
 		{
 		}
@@ -268,10 +268,10 @@ namespace AntMe.Spieler.WolfgangGallo
 		#region Kampf
 
 		/// <summary>
-		/// Wird wiederholt aufgerufen, wenn die Ameise mindestens einen Käfer
+		/// Wird wiederholt aufgerufen, wenn die Ameise mindestens einen KÃ¤fer
 		/// sieht.
 		/// </summary>
-		/// <param name="wanze">Der nächstgelegene Käfer.</param>
+		/// <param name="wanze">Der nÃ¤chstgelegene KÃ¤fer.</param>
 		public override void SiehtFeind(Wanze wanze)
 		{
 			switch (Kaste)
@@ -289,7 +289,7 @@ namespace AntMe.Spieler.WolfgangGallo
 		/// Wird wiederholt aufgerufen, wenn die Ameise mindestens eine Ameise eines
 		/// anderen Volkes sieht.
 		/// </summary>
-		/// <param name="ameise">Die nächstgelegen feindliche Ameise.</param>
+		/// <param name="ameise">Die nÃ¤chstgelegen feindliche Ameise.</param>
 		public override void SiehtFeind(Ameise ameise)
 		{
 			switch (Kaste)
@@ -304,10 +304,10 @@ namespace AntMe.Spieler.WolfgangGallo
 		}
 
 		/// <summary>
-		/// Wird wiederholt aufgerufen, wenn die Ameise von einem Käfer angegriffen
+		/// Wird wiederholt aufgerufen, wenn die Ameise von einem KÃ¤fer angegriffen
 		/// wird.
 		/// </summary>
-		/// <param name="wanze">Der angreifende Käfer.</param>
+		/// <param name="wanze">Der angreifende KÃ¤fer.</param>
 		public override void WirdAngegriffen(Wanze wanze)
 		{
 			GreifeAn(wanze);
@@ -342,7 +342,7 @@ namespace AntMe.Spieler.WolfgangGallo
 		}
 
 		/// <summary>
-		/// Wird unabhängig von äußeren Umständen in jeder Runde aufgerufen.
+		/// Wird unabhÃ¤ngig von Ã¤uÃŸeren UmstÃ¤nden in jeder Runde aufgerufen.
 		/// </summary>
 		public override void Tick()
 		{

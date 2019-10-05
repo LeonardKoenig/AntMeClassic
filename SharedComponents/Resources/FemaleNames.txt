@@ -1,4 +1,4 @@
-Abby
+ï»¿Abby
 Abelina
 Abigail
 Adelaide
@@ -86,7 +86,7 @@ Audrey
 Aurelia
 Babette
 Barbara
-Bärbel
+BÃ¤rbel
 Bastiane
 Bea
 Beata
@@ -387,7 +387,7 @@ Fortuna
 Frances
 Francesca
 Francisca
-Françoise
+FranÃ§oise
 Franka
 Franzi
 Franziska
@@ -570,7 +570,7 @@ Johanna
 Jolanda
 Jona
 Jordana
-Jördis
+JÃ¶rdis
 Josee
 Josefa
 Josefina
@@ -617,7 +617,7 @@ Katarina
 Kate
 Katharina
 Katharine
-Käthe
+KÃ¤the
 Katherina
 Katherine
 Kathleen
@@ -665,7 +665,7 @@ Lana
 Lara
 Laria
 Larissa
-Lätizia
+LÃ¤tizia
 Laurel
 Lauren
 Laurence

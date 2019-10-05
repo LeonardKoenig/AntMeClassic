@@ -1,19 +1,19 @@
-using AntMe.SharedComponents.States;
+ï»¿using AntMe.SharedComponents.States;
 using System;
 
 namespace AntMe.Simulation
 {
     /// <summary>
-    /// Eine Duft-Markierung die eine Information enthält.
+    /// Eine Duft-Markierung die eine Information enthÃ¤lt.
     /// </summary>
     /// <author>Wolfgang Gallo (wolfgang@antme.net)</author>
     internal sealed class CoreMarker : ICoordinate
     {
-        // Die Id der nächsten erzeugten Markierung.
+        // Die Id der nÃ¤chsten erzeugten Markierung.
         private static int neueId = 0;
 
         /// <summary>
-        /// Die Id die die Markierung während eines Spiels eindeutig identifiziert.
+        /// Die Id die die Markierung wÃ¤hrend eines Spiels eindeutig identifiziert.
         /// </summary>
         public readonly int Id;
 
@@ -22,7 +22,7 @@ namespace AntMe.Simulation
 
         private int age = 0;
         private int totalAge;
-        private int endgröße;
+        private int endgrÃ¶ÃŸe;
         private int information;
 
 
@@ -30,35 +30,35 @@ namespace AntMe.Simulation
         /// Erzeugt eine neue Instanz der Markierung-Klasse.
         /// </summary>
         /// <param name="koordinate">Die Koordinate der Markierung.</param>
-        /// <param name="endgröße">Die Ausbreitung der Markierung in Schritten.
+        /// <param name="endgrÃ¶ÃŸe">Die Ausbreitung der Markierung in Schritten.
         /// </param>
         /// <param name="colonyId">ID des Volkes</param>
-        internal CoreMarker(CoreCoordinate koordinate, int endgröße, int colonyId)
+        internal CoreMarker(CoreCoordinate koordinate, int endgrÃ¶ÃŸe, int colonyId)
         {
             this.colonyId = colonyId;
             Id = neueId++;
             this.koordinate = koordinate;
 
-            // Volumen der kleinsten Markierung (r³ * PI/2) ermitteln (Halbkugel)
+            // Volumen der kleinsten Markierung (rÂ³ * PI/2) ermitteln (Halbkugel)
             double baseVolume = Math.Pow(SimulationSettings.Custom.MarkerSizeMinimum, 3) * (Math.PI / 2);
 
-            // Korrektur für größere Markierungen
+            // Korrektur fÃ¼r grÃ¶ÃŸere Markierungen
             baseVolume *= 10f;
 
-            // Gesamtvolumen über die volle Zeit ermitteln
+            // Gesamtvolumen Ã¼ber die volle Zeit ermitteln
             double totalvolume = baseVolume * SimulationSettings.Custom.MarkerMaximumAge;
 
-            // Maximale Markergröße ermitteln
+            // Maximale MarkergrÃ¶ÃŸe ermitteln
             int maxSize = (int)Math.Pow(4 * ((totalvolume - baseVolume) / Math.PI), 1f / 3f);
 
-            // Gewünschte Zielgröße limitieren (Min Markersize, Max MaxSize)
-            this.endgröße = Math.Max(SimulationSettings.Custom.MarkerSizeMinimum, Math.Min(maxSize, endgröße));
+            // GewÃ¼nschte ZielgrÃ¶ÃŸe limitieren (Min Markersize, Max MaxSize)
+            this.endgrÃ¶ÃŸe = Math.Max(SimulationSettings.Custom.MarkerSizeMinimum, Math.Min(maxSize, endgrÃ¶ÃŸe));
 
-            // Volumen für die größte Markierung ermitteln
-            int diffRadius = this.endgröße - SimulationSettings.Custom.MarkerSizeMinimum;
+            // Volumen fÃ¼r die grÃ¶ÃŸte Markierung ermitteln
+            int diffRadius = this.endgrÃ¶ÃŸe - SimulationSettings.Custom.MarkerSizeMinimum;
             double diffVolume = Math.Pow(diffRadius, 3) * (Math.PI / 4);
 
-            // Lebenszeit bei angestrebter Gesamtgröße ermitteln
+            // Lebenszeit bei angestrebter GesamtgrÃ¶ÃŸe ermitteln
             totalAge = (int)Math.Floor(totalvolume / (baseVolume + diffVolume));
             Aktualisieren();
         }
@@ -73,7 +73,7 @@ namespace AntMe.Simulation
         }
 
         /// <summary>
-        /// Bestimmt ob die Markierung ihre maximales Alter noch nicht überschritten
+        /// Bestimmt ob die Markierung ihre maximales Alter noch nicht Ã¼berschritten
         /// hat.
         /// </summary>
         public bool IstAktiv
@@ -94,7 +94,7 @@ namespace AntMe.Simulation
         #endregion
 
         /// <summary>
-        /// Erhöht das Alter der Markierung und passt ihren Radius an.
+        /// ErhÃ¶ht das Alter der Markierung und passt ihren Radius an.
         /// </summary>
         internal void Aktualisieren()
         {
@@ -103,7 +103,7 @@ namespace AntMe.Simulation
             {
                 koordinate.Radius = (int)(
                     SimulationSettings.Custom.MarkerSizeMinimum +
-                    endgröße * ((float)age / totalAge)) * SimulationEnvironment.PLAYGROUND_UNIT;
+                    endgrÃ¶ÃŸe * ((float)age / totalAge)) * SimulationEnvironment.PLAYGROUND_UNIT;
             }
         }
 

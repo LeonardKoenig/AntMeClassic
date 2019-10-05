@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Reflection;
 
@@ -104,25 +104,25 @@ namespace AntMe.Simulation
                 {
                     case "mscorlib":
                         // Framework-Core
-                        byte[] coreschlüssel = new AssemblyName(typeof(object).Assembly.FullName).GetPublicKeyToken();
-                        byte[] referenzschlüssel = reference.GetPublicKeyToken();
-                        if (coreschlüssel[0] != referenzschlüssel[0] ||
-                            coreschlüssel[1] != referenzschlüssel[1] ||
-                            coreschlüssel[2] != referenzschlüssel[2] ||
-                            coreschlüssel[3] != referenzschlüssel[3] ||
-                            coreschlüssel[4] != referenzschlüssel[4] ||
-                            coreschlüssel[5] != referenzschlüssel[5] ||
-                            coreschlüssel[6] != referenzschlüssel[6] ||
-                            coreschlüssel[7] != referenzschlüssel[7])
+                        byte[] coreschlÃ¼ssel = new AssemblyName(typeof(object).Assembly.FullName).GetPublicKeyToken();
+                        byte[] referenzschlÃ¼ssel = reference.GetPublicKeyToken();
+                        if (coreschlÃ¼ssel[0] != referenzschlÃ¼ssel[0] ||
+                            coreschlÃ¼ssel[1] != referenzschlÃ¼ssel[1] ||
+                            coreschlÃ¼ssel[2] != referenzschlÃ¼ssel[2] ||
+                            coreschlÃ¼ssel[3] != referenzschlÃ¼ssel[3] ||
+                            coreschlÃ¼ssel[4] != referenzschlÃ¼ssel[4] ||
+                            coreschlÃ¼ssel[5] != referenzschlÃ¼ssel[5] ||
+                            coreschlÃ¼ssel[6] != referenzschlÃ¼ssel[6] ||
+                            coreschlÃ¼ssel[7] != referenzschlÃ¼ssel[7])
                         {
                             throw new RuleViolationException(Resource.SimulationCoreAnalysisCheatWithFxFake);
                         }
                         break;
                     case "Microsoft.VisualBasic":
-                        // TODO: Prüfen, wie wir damit umgehen
+                        // TODO: PrÃ¼fen, wie wir damit umgehen
                         break;
                     case "System":
-                        // TODO: Prüfen, wie wir damit umgehen
+                        // TODO: PrÃ¼fen, wie wir damit umgehen
                         break;
                     case "AntMe.Simulation":
                         if (Assembly.GetCallingAssembly().FullName != reference.FullName)
@@ -193,18 +193,18 @@ namespace AntMe.Simulation
             foreach (Type type in types)
             {
                 // Suche nach statischen Variablen und bestimme so, ob der Spieler
-                // ein globales Gedächtnis für seine Ameisen benutzt.
+                // ein globales GedÃ¤chtnis fÃ¼r seine Ameisen benutzt.
                 BindingFlags flags =
                     BindingFlags.Public | BindingFlags.NonPublic |
                     BindingFlags.Static | BindingFlags.SetField;
                 staticVariables |= type.GetFields(flags).Length > 0;
             }
 
-            // Gefundene KIs auf Regeln prüfen
-            // Betrachte alle öffentlichen Typen in der Bibliothek.
+            // Gefundene KIs auf Regeln prÃ¼fen
+            // Betrachte alle Ã¶ffentlichen Typen in der Bibliothek.
             foreach (Type type in assembly.GetExportedTypes())
             {
-                // Prüfe ob der Typ von der Klasse Ameise erbt.
+                // PrÃ¼fe ob der Typ von der Klasse Ameise erbt.
 
                 // Ameisenversion 1.6
                 if (type.IsSubclassOf(coreAnt))
@@ -423,7 +423,7 @@ namespace AntMe.Simulation
                         }
                     }
 
-                    // Prüfe ob die Klasse regelkonform ist
+                    // PrÃ¼fe ob die Klasse regelkonform ist
                     player.Static = staticVariables;
                     player.RequestReferences = foreignReferences;
                     if (foreignReferences)
@@ -456,9 +456,9 @@ namespace AntMe.Simulation
                     }
                 }
 
-                #region Erkennung älterer KI-Versionen
+                #region Erkennung Ã¤lterer KI-Versionen
 
-                // Ältere Versionen
+                // Ã„ltere Versionen
                 else if (type.BaseType.Name == "AntMe.Ameise")
                 {
                     // Leerer Spieler-Rumpf
@@ -469,7 +469,7 @@ namespace AntMe.Simulation
                     player.ClassName = type.FullName;
 
                     // Veraltete Version (1.1 oder 1.5)
-                    // TODO: Prüfen
+                    // TODO: PrÃ¼fen
                     if (type.GetMember("RiechtFreund") != null)
                     {
                         player.SimulationVersion = PlayerSimulationVersions.Version_1_5;
@@ -544,7 +544,7 @@ namespace AntMe.Simulation
                         }
                     }
 
-                    // Prüfe ob die Klasse regelkonform ist
+                    // PrÃ¼fe ob die Klasse regelkonform ist
                     player.Static = staticVariables;
                     switch (playerDefinitions)
                     {

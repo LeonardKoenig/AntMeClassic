@@ -1,4 +1,4 @@
-Imports System.Collections.Generic
+ï»¿Imports System.Collections.Generic
 
 Imports AntMe.Deutsch
 
@@ -33,7 +33,7 @@ Public Class {0}
     Public Overrides Sub Wartet()
     End Sub
 
-    Public Overrides Sub WirdMüde()
+    Public Overrides Sub WirdMÃ¼de()
     End Sub
 
     Public Overrides Sub IstGestorben(ByVal todesart As Todesart)
@@ -68,7 +68,7 @@ Public Class {0}
     Public Overrides Sub SiehtFreund(ByVal ameise As Ameise)
     End Sub
 
-    Public Overrides Sub SiehtVerbündeten(ByVal ameise As Ameise)
+    Public Overrides Sub SiehtVerbÃ¼ndeten(ByVal ameise As Ameise)
     End Sub
 
 #End Region

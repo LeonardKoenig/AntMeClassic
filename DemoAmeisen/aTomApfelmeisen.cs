@@ -1,10 +1,10 @@
-using System.Collections.Generic;
+Ôªøusing System.Collections.Generic;
 using AntMe.Deutsch;
 
 namespace AntMe.DemoAmeisen {
     /// <summary>
-    /// Ameisendemo die sich darauf konzentriert effizient ƒpfel einzusammeln.
-    /// Andere Nahrungsmittel werden ignoriert und den K‰fern wird nur versucht
+    /// Ameisendemo die sich darauf konzentriert effizient √Ñpfel einzusammeln.
+    /// Andere Nahrungsmittel werden ignoriert und den K√§fern wird nur versucht
     /// auszuweichen.
     /// </summary>
 
@@ -48,7 +48,7 @@ namespace AntMe.DemoAmeisen {
         public override void Wartet()
         {
 
-            // Sollte die Ameise auﬂerhalb des Nahrungsmittelradiuses liegen...
+            // Sollte die Ameise au√üerhalb des Nahrungsmittelradiuses liegen...
             if (EntfernungZuBau > 400)
             {
                 // ... soll sie wieder heim gehen.
@@ -56,15 +56,15 @@ namespace AntMe.DemoAmeisen {
             }
             else
             {
-                // ... ansonsten soll sie sich ein bischen drehen (zuf‰lliger Winkel
+                // ... ansonsten soll sie sich ein bischen drehen (zuf√§lliger Winkel
                 // zwischen -10 und 10 Grad) und wieder ein paar Schritte laufen.
                 DreheUmWinkel(Zufall.Zahl(-10, 10));
                 GeheGeradeaus(20);
             }
 
-            // Wenn die restliche verf¸gbare Strecke der Ameise (minus einem Puffer
+            // Wenn die restliche verf√ºgbare Strecke der Ameise (minus einem Puffer
             // von 50 Schritten) kleiner als die Entfernung zum Bau ist...
-            if (Reichweite - Zur¸ckgelegteStrecke - 50 < EntfernungZuBau)
+            if (Reichweite - Zur√ºckgelegteStrecke - 50 < EntfernungZuBau)
             {
                 // ... soll sie nach Hause gehen um nicht zu sterben.
                 GeheZuBau();
@@ -77,35 +77,35 @@ namespace AntMe.DemoAmeisen {
 
         /// <summary>
         /// Wird wiederholt aufgerufen, wenn die Ameise mindstens ein
-        /// Obstst¸ck sieht.
+        /// Obstst√ºck sieht.
         /// </summary>
-        /// <param name="obst">Das n‰chstgelegene Obstst¸ck.</param>
+        /// <param name="obst">Das n√§chstgelegene Obstst√ºck.</param>
         public override void Sieht(Obst obst)
         {
-            // Sofern der Apfel noch Tr‰ger braucht soll die Ameise zum Apfel.
-            if (BrauchtNochTr‰ger(obst))
+            // Sofern der Apfel noch Tr√§ger braucht soll die Ameise zum Apfel.
+            if (BrauchtNochTr√§ger(obst))
             {
                 GeheZuZiel(obst);
             }
         }
 
         /// <summary>
-        /// Wird einmal aufgerufen, wenn die Ameise ein Obstst¸ck als Ziel hat und
+        /// Wird einmal aufgerufen, wenn die Ameise ein Obstst√ºck als Ziel hat und
         /// bei diesem ankommt.
         /// </summary>
-        /// <param name="obst">Das Obst¸ck.</param>
+        /// <param name="obst">Das Obst√ºck.</param>
         public override void ZielErreicht(Obst obst)
         {
-            // Die Ameise soll nochmal pr¸fen ob der Apfel ¸berhaupt noch Tr‰ger
+            // Die Ameise soll nochmal pr√ºfen ob der Apfel √ºberhaupt noch Tr√§ger
             // braucht.
-            if (BrauchtNochTr‰ger(obst))
+            if (BrauchtNochTr√§ger(obst))
             {
-                // Wenn noch Tr‰ger gebraucht werden soll die Ameise eine Markierung
-                // spr¸hen die als Information die Menge benˆtigter Ameisen hat. Da die
-                // benˆtigte Menge nicht genau ermittelt werden kann wird hier nur
-                // gesch‰tzt. Es wird erwartet, dass 20 gebraucht werden und dass in
+                // Wenn noch Tr√§ger gebraucht werden soll die Ameise eine Markierung
+                // spr√ºhen die als Information die Menge ben√∂tigter Ameisen hat. Da die
+                // ben√∂tigte Menge nicht genau ermittelt werden kann wird hier nur
+                // gesch√§tzt. Es wird erwartet, dass 20 gebraucht werden und dass in
                 // "AnzahlInSichtweite" etwa die Zahl tragenden Ameisen steckt.
-                Spr¸heMarkierung(20 - AnzahlAmeisenInSichtweite, 200);
+                Spr√ºheMarkierung(20 - AnzahlAmeisenInSichtweite, 200);
                 Nimm(obst);
                 GeheZuBau();
             }
@@ -119,12 +119,12 @@ namespace AntMe.DemoAmeisen {
         /// Volkes riecht. Einmal gerochene Markierungen werden nicht erneut
         /// gerochen.
         /// </summary>
-        /// <param name="markierung">Die n‰chste neue Markierung.</param>
+        /// <param name="markierung">Die n√§chste neue Markierung.</param>
         public override void RiechtFreund(Markierung markierung)
         {
             // Sollte die Ameise nicht schon Obst im Auge haben oder auf dem Weg zum
             // Bau sein soll sie, wenn die angeforderte Menge Ameisen die Ameisenmenge
-            // der gerade in Sichtweite befindlichen Ameisen ¸bersteigt, zum
+            // der gerade in Sichtweite befindlichen Ameisen √ºbersteigt, zum
             // Markierungsmittelpunkt gehen um dort hoffentlich den Apfel zu sehen.
             if (!(Ziel is Obst) &&
                 !(Ziel is Bau) &&
@@ -132,19 +132,19 @@ namespace AntMe.DemoAmeisen {
             {
                 GeheZuZiel(markierung);
                 // Sollte die Entfernung mehr als 50 schritte zum Mittelpunkt betragen,
-                // soll eine Folgemarkierung gespr¸ht werden um denn Effektradius zu 
-                // erhˆhen.
+                // soll eine Folgemarkierung gespr√ºht werden um denn Effektradius zu 
+                // erh√∂hen.
                 if (Koordinate.BestimmeEntfernung(this, markierung) > 50)
                 {
-                    Spr¸heMarkierung(
+                    Spr√ºheMarkierung(
                         Koordinate.BestimmeRichtung(this, markierung),
                         Koordinate.BestimmeEntfernung(this, markierung));
                 }
             }
             else
             {
-                // In allen anderen F‰llen soll sie kurz stehen bleiben um zu
-                // verhindern, dass die Ameise dem Apfel ewig hinterher l‰uft.
+                // In allen anderen F√§llen soll sie kurz stehen bleiben um zu
+                // verhindern, dass die Ameise dem Apfel ewig hinterher l√§uft.
                 BleibStehen();
             }
         }
@@ -153,20 +153,20 @@ namespace AntMe.DemoAmeisen {
         #region Kampf
 
         /// <summary>
-        /// Wird wiederholt aufgerufen, wenn die Ameise mindestens einen K‰fer
+        /// Wird wiederholt aufgerufen, wenn die Ameise mindestens einen K√§fer
         /// sieht.
         /// </summary>
-        /// <param name="wanze">Der n‰chstgelegene Wanze.</param>
+        /// <param name="wanze">Der n√§chstgelegene Wanze.</param>
         public override void SiehtFeind(Wanze wanze)
         {
-            // Bei K‰fersicht wird ermittelt ob die Ameise evtl. kollidiert, wenn sie
+            // Bei K√§fersicht wird ermittelt ob die Ameise evtl. kollidiert, wenn sie
             // geradeaus weitergeht.
             int relativeRichtung = 
                 Koordinate.BestimmeRichtung(this, wanze) - Richtung;
             if (relativeRichtung > -15 && relativeRichtung < 15)
             {
                 // Wenn ja, soll sie erstmal die Nahrung fallen lassen um schneller zu
-                // laufen und dann, je nachdem auf welcher Seite der K‰fer ist, in einem
+                // laufen und dann, je nachdem auf welcher Seite der K√§fer ist, in einem
                 // 20 Grad-Winkel in die andere Richtung weggehen.
                 LasseNahrungFallen();
                 if (relativeRichtung < 0)
@@ -185,7 +185,7 @@ namespace AntMe.DemoAmeisen {
         #region Sonstiges
 
         /// <summary>
-        /// Wird unabh‰ngig von ‰uﬂeren Umst‰nden in jeder Runde aufgerufen.
+        /// Wird unabh√§ngig von √§u√üeren Umst√§nden in jeder Runde aufgerufen.
         /// </summary>
         public override void Tick()
         {
@@ -193,26 +193,26 @@ namespace AntMe.DemoAmeisen {
             // Sollte die Ameise gerade mit Nahrung unterwegs sein...
             if (Ziel != null && GetragenesObst != null)
             {
-                // ... und noch Helfer f¸r den Apfel gebraucht werden...
-                if (BrauchtNochTr‰ger(GetragenesObst))
+                // ... und noch Helfer f√ºr den Apfel gebraucht werden...
+                if (BrauchtNochTr√§ger(GetragenesObst))
                 {
-                    // ... soll sie eine Markierung spr¸hen die die Information enth‰lt,
+                    // ... soll sie eine Markierung spr√ºhen die die Information enth√§lt,
                     // wie viele Ameisen noch beim Tragen helfen sollen.
-                    Spr¸heMarkierung(20 - AnzahlAmeisenInSichtweite, 200);
+                    Spr√ºheMarkierung(20 - AnzahlAmeisenInSichtweite, 200);
                 }
             }
 
-            // Sollte die Ameise, w‰rend sie Obst tr‰gt, das Ziel "Bau" verlieren,
+            // Sollte die Ameise, w√§rend sie Obst tr√§gt, das Ziel "Bau" verlieren,
             // wird das Ziel neu gesetzt.
             if (GetragenesObst != null)
             {
                 GeheZuBau();
             }
 
-            // Sollte die Ameise einem St¸ck Obst hinterher laufen das garkeine Tr‰ger
-            // mehr braucht soll sie stehen bleiben um anschlieﬂend durch "wartet"
+            // Sollte die Ameise einem St√ºck Obst hinterher laufen das garkeine Tr√§ger
+            // mehr braucht soll sie stehen bleiben um anschlie√üend durch "wartet"
             // wieder umher geschickt zu werden.
-            if (Ziel is Obst && !BrauchtNochTr‰ger((Obst)Ziel))
+            if (Ziel is Obst && !BrauchtNochTr√§ger((Obst)Ziel))
             {
                 BleibStehen();
             }

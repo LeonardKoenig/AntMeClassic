@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Reflection;
@@ -150,7 +150,7 @@ namespace AntMe.Simulation
             }
             stepWatch.Stop();
 
-            // Bei Exceptions null zur�ck liefern, um Fehler zu signalisieren
+            // Bei Exceptions null zurück liefern, um Fehler zu signalisieren
             if (exception != null)
             {
                 return null;

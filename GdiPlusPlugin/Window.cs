@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -9,7 +9,7 @@ namespace AntMe.Plugin.GdiPlusPlugin
 {
 
 	/// <summary>
-	/// Fenster für die 2D-Anzeige.
+	/// Fenster fÃ¼r die 2D-Anzeige.
 	/// </summary>
 	/// <author>Wolfgang Gallo (wolfgang@antme.net)</author>
 	internal partial class Window : Form
@@ -19,7 +19,7 @@ namespace AntMe.Plugin.GdiPlusPlugin
 		private Playground playground;
 
 		/// <summary>
-		/// Stellt dem Spielfeld-Kontrollelement den Zustand zur Verfügung.
+		/// Stellt dem Spielfeld-Kontrollelement den Zustand zur VerfÃ¼gung.
 		/// </summary>
 		public SimulationState State = null;
 
@@ -31,11 +31,11 @@ namespace AntMe.Plugin.GdiPlusPlugin
 			// Initialisiert das Fenster wie im Designer in Visual Studio festgelegt.
 			InitializeComponent();
 
-			// Sage Windows, daß wir das Puffern beim Zeichnen selbst übernehmen.
+			// Sage Windows, daÃŸ wir das Puffern beim Zeichnen selbst Ã¼bernehmen.
 			SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint, true);
 			UpdateStyles();
 
-			// Erzeuge das Spielfeld-Kontrollelement und füge es dem Fenster hinzu.
+			// Erzeuge das Spielfeld-Kontrollelement und fÃ¼ge es dem Fenster hinzu.
 			playground = new Playground(this);
 			playground.Dock = DockStyle.Fill;
 			splitContainer.Panel1.Controls.Add(playground);
@@ -79,7 +79,7 @@ namespace AntMe.Plugin.GdiPlusPlugin
 		}
 
 		/// <summary>
-		/// Stellt einen Zustand auf dem Spielfeld und in den Infokästen dar.
+		/// Stellt einen Zustand auf dem Spielfeld und in den InfokÃ¤sten dar.
 		/// </summary>
 		/// <param name="state"></param>
 		public void Update(SimulationState state)
@@ -110,27 +110,27 @@ namespace AntMe.Plugin.GdiPlusPlugin
 		{
 			// Die aktuellen Werte aller Insekten sind als Klassen im Zustand
 			// gespeichert. Hier in der 2D-Anzeige werden diese Werte auf das Spiel-
-			// feld gezeichnet und in Informationskästen angezeigt. Diese Kästen sind
-			// für Windows Kontrollemente und ihre Erzeugung ist teuer, d.h. sie
+			// feld gezeichnet und in InformationskÃ¤sten angezeigt. Diese KÃ¤sten sind
+			// fÃ¼r Windows Kontrollemente und ihre Erzeugung ist teuer, d.h. sie
 			// kostet relativ viel Zeit. Daher werden sie nicht in jeder Runde neu
-			// erzeugt, sondern so lange weiterverwendet, wie das zugehörende Insekt
+			// erzeugt, sondern so lange weiterverwendet, wie das zugehÃ¶rende Insekt
 			// am Leben ist.
 
-			// Um die Kästen zu aktualisieren, müssen die Strukturen im Zustand mit
-			// den Objekten von hier abgeglichen werden. Der Abgleich erfolgt über
-			// die eindeutige Id aller Insekten. Die folgende Schleife ist dafür
-			// zuständig, diese Aktualisierung möglichst schnell durchzuführen. Sie
-			// läuft dazu gleichzeitig über die vorhandenen InfoKästen und die
+			// Um die KÃ¤sten zu aktualisieren, mÃ¼ssen die Strukturen im Zustand mit
+			// den Objekten von hier abgeglichen werden. Der Abgleich erfolgt Ã¼ber
+			// die eindeutige Id aller Insekten. Die folgende Schleife ist dafÃ¼r
+			// zustÃ¤ndig, diese Aktualisierung mÃ¶glichst schnell durchzufÃ¼hren. Sie
+			// lÃ¤uft dazu gleichzeitig Ã¼ber die vorhandenen InfoKÃ¤sten und die
 			// Insekten im Zustand. Pro Durchlauf der Schleife wird in einer oder in
-			// beiden Listen zum Nächsten Element übergegangen.
+			// beiden Listen zum NÃ¤chsten Element Ã¼bergegangen.
 
-			// Vorraussetzung für diesen Algorithmus ist es, daß die Ids in beiden
+			// Vorraussetzung fÃ¼r diesen Algorithmus ist es, daÃŸ die Ids in beiden
 			// Listen aufsteigend sortiert sind, und das ein neues Insekt eine Id
-			// hat, die noch nicht verwendet wurde und höher ist als alle bisher
-			// verwendeten Ids. Die Simulation erfüllt diese Vorraussetzungen.
+			// hat, die noch nicht verwendet wurde und hÃ¶her ist als alle bisher
+			// verwendeten Ids. Die Simulation erfÃ¼llt diese Vorraussetzungen.
 
-			// In der WPF-Anzeige ist dieser Algorithmus in sehr änhlicher Form
-			// ebenfalls enthalten und erfüllt die selbe Aufgabe.
+			// In der WPF-Anzeige ist dieser Algorithmus in sehr Ã¤nhlicher Form
+			// ebenfalls enthalten und erfÃ¼llt die selbe Aufgabe.
 
 			AntInfoBox antbox;
 			BugInfoBox bugbox;
@@ -145,8 +145,8 @@ namespace AntMe.Plugin.GdiPlusPlugin
 				// Wandle das aktuelle Kontrollelement in einen BugInfoBox um.
 				bugbox = insectsPanel.Controls[i] as BugInfoBox;
 
-				// Wenn es keine BugInfoBox ist, muß es eine AntInfoBox sein. Also
-				// weiter zur nächsten Schleife.
+				// Wenn es keine BugInfoBox ist, muÃŸ es eine AntInfoBox sein. Also
+				// weiter zur nÃ¤chsten Schleife.
 				if (bugbox == null)
 					break;
 
@@ -166,29 +166,29 @@ namespace AntMe.Plugin.GdiPlusPlugin
 			{
 				a = 0;
 
-				// Aktualisiere die AmeisenKästen.
+				// Aktualisiere die AmeisenKÃ¤sten.
 				while (i < insectsPanel.Controls.Count && a < State.ColonyStates[c].AntStates.Count)
 				{
 					// Wandle das aktuelle Kontrollelement in einen AmeisenKasten um.
 					// Hier kann es nur noch ein AmeisenKasten sein.
 					antbox = (AntInfoBox)insectsPanel.Controls[i];
 
-					// Wenn der Kasten zu einem neuen Volk gehört, dann weiter zur nächsten
+					// Wenn der Kasten zu einem neuen Volk gehÃ¶rt, dann weiter zur nÃ¤chsten
 					// Schleife.
 					if (antbox.ColonyId != State.ColonyStates[c].Id)
 						break;
 
 					// Wenn die Id des AmeisenKasten kleiner ist als die Id der aktuellen
-					// Ameise im Zustand, dann ist die Ameise für die der Kasten
+					// Ameise im Zustand, dann ist die Ameise fÃ¼r die der Kasten
 					// Informationen liefert, nicht mehr um Zustand enthalten, d.h. die
 					// Ameise ist gestorben. Der Kasten kann also entfernt werden. Dadurch
-					// rücken die folgenden Kästen nach vorne, der Index muß also nicht
-					// erhöht werden.
+					// rÃ¼cken die folgenden KÃ¤sten nach vorne, der Index muÃŸ also nicht
+					// erhÃ¶ht werden.
 					if (antbox.Id < State.ColonyStates[c].AntStates[a].Id)
 						insectsPanel.Controls.RemoveAt(i);
 
-						// Wenn die Ids übereinstimmen, dann aktualisiere die Informationen
-					// und rücke in beiden Listen zum nächsten Element vor.
+						// Wenn die Ids Ã¼bereinstimmen, dann aktualisiere die Informationen
+					// und rÃ¼cke in beiden Listen zum nÃ¤chsten Element vor.
 					else if (antbox.Id == State.ColonyStates[c].AntStates[a].Id)
 					{
 						antbox.Ant = State.ColonyStates[c].AntStates[a];
@@ -196,7 +196,7 @@ namespace AntMe.Plugin.GdiPlusPlugin
 						a++;
 					}
 
-						// Ansonten fahre mit der nächsten Ameise im Zustand fort.
+						// Ansonten fahre mit der nÃ¤chsten Ameise im Zustand fort.
 					else
 						a++;
 				}
@@ -209,16 +209,16 @@ namespace AntMe.Plugin.GdiPlusPlugin
 		/// </summary>
 		public void ShowInformation(List<int> selectedBugs, List<int> selectedAnts)
 		{
-			// Brich ab, falls noch kein Zustand übergeben wurde.
+			// Brich ab, falls noch kein Zustand Ã¼bergeben wurde.
 			if (State == null)
 				return;
 
-			// Sage Windows, daß wir jetzt größere Änderungen an den Kontroll-
+			// Sage Windows, daÃŸ wir jetzt grÃ¶ÃŸere Ã„nderungen an den Kontroll-
 			// elementen in dem Panel vornehmen.
 			insectsPanel.SuspendLayout();
 			insectsPanel.Controls.Clear();
 
-			// Erzeuge InfoKästen für alle Insekten, die innerhalb des Auswahl-
+			// Erzeuge InfoKÃ¤sten fÃ¼r alle Insekten, die innerhalb des Auswahl-
 			// rechtecks liegen.
 
 			if (selectedBugs.Count > 0)
@@ -248,38 +248,38 @@ namespace AntMe.Plugin.GdiPlusPlugin
 					v++;
 				}
 
-			// Sage Windows, daß die Änderungen abgeschlossen sind.
+			// Sage Windows, daÃŸ die Ã„nderungen abgeschlossen sind.
 			insectsPanel.ResumeLayout();
 		}
 
-		// Wird aufgerufen, wenn der Schließen Knopf des Fensters gedrückt wurde.
+		// Wird aufgerufen, wenn der SchlieÃŸen Knopf des Fensters gedrÃ¼ckt wurde.
 		private void Window_FormClosing(object sender, FormClosingEventArgs e)
 		{
-			// Verhindere, daß das Fenster geschlossen, d.h. das Fenster-Objekt
-			// zerstört wird. Verstecke das Fenster stattdessen.
+			// Verhindere, daÃŸ das Fenster geschlossen, d.h. das Fenster-Objekt
+			// zerstÃ¶rt wird. Verstecke das Fenster stattdessen.
 			e.Cancel = true;
 			Hide();
 		}
 
-		// Wird aufgerufen, wenn die Checkbox für das Anti-Aliasing ihren Status
-		// geändert hat.
+		// Wird aufgerufen, wenn die Checkbox fÃ¼r das Anti-Aliasing ihren Status
+		// geÃ¤ndert hat.
 		private void antialiasingCheckbox_CheckedChanged(object s, EventArgs e)
 		{
 			// Erzwinge das Erzeugen einer neuen Hintergrund-Grafik, damit die
-			// Anti-Aliasing Einstellung übernommen wird.
+			// Anti-Aliasing Einstellung Ã¼bernommen wird.
 			playground.DoResize();
 		}
 
-		// Wird aufgerufen, wenn die Checkbox für das Zeigen der Punktetabelle
-		// ihren Status geändert hat.
+		// Wird aufgerufen, wenn die Checkbox fÃ¼r das Zeigen der Punktetabelle
+		// ihren Status geÃ¤ndert hat.
 		private void showPointsCheckbox_CheckedChanged(object sender, EventArgs e)
 		{
 			playground.ShowScore = cbShowScore.Checked;
 			playground.DoResize();
 		}
 
-		// Wird aufgerufen, wenn der Knopf für das Zurücksetzen der Ansicht 
-		// gedrückt wurde.
+		// Wird aufgerufen, wenn der Knopf fÃ¼r das ZurÃ¼cksetzen der Ansicht 
+		// gedrÃ¼ckt wurde.
 		private void resetButton_Click(object sender, EventArgs e)
 		{
 			playground.ResetView();

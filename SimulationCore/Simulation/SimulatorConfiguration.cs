@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Configuration;
 
@@ -54,7 +54,7 @@ namespace AntMe.Simulation
         private bool allowDebuginformation;
         private int loopTimeout;
 
-        // Zusätzliche Rechte anforderbar
+        // ZusÃ¤tzliche Rechte anforderbar
         private bool allowDatabaseAccess;
         private bool allowFileAccess;
         private bool allowReferences;
@@ -103,9 +103,9 @@ namespace AntMe.Simulation
         }
 
         /// <summary>
-        /// Initialsiert mit den übergebenen Werten
+        /// Initialsiert mit den Ã¼bergebenen Werten
         /// </summary>
-        /// <param name="loops">Anzahl Durchläufe</param>
+        /// <param name="loops">Anzahl DurchlÃ¤ufe</param>
         /// <param name="rounds">Anzahl Runden</param>
         /// <param name="teams">Teamliste</param>
         public SimulatorConfiguration(int loops, int rounds, List<TeamInfo> teams)
@@ -122,15 +122,15 @@ namespace AntMe.Simulation
 
         #endregion
 
-        #region öffentliche Methoden
+        #region Ã¶ffentliche Methoden
 
         /// <summary>
-        /// Ermittelt, ob die Angaben der Konfiguration simulationsfähig sind
+        /// Ermittelt, ob die Angaben der Konfiguration simulationsfÃ¤hig sind
         /// </summary>
         /// <returns>Regelkonformer Konfigurationsinhalt</returns>
         public void Rulecheck()
         {
-            // Rundenanzahl prüfen
+            // Rundenanzahl prÃ¼fen
             if (roundCount < ROUNDSMIN)
             {
                 throw new ConfigurationErrorsException(Resource.SimulationCoreConfigurationRoundCountTooSmall);
@@ -141,7 +141,7 @@ namespace AntMe.Simulation
                     string.Format(Resource.SimulationCoreConfigurationRoundCountTooBig, ROUNDSMAX));
             }
 
-            // Durchlaufmenge prüfen
+            // Durchlaufmenge prÃ¼fen
             if (loopCount < LOOPSMIN)
             {
                 throw new ConfigurationErrorsException(Resource.SimulationCoreConfigurationLoopCountTooSmall);
@@ -188,7 +188,7 @@ namespace AntMe.Simulation
                 throw new ConfigurationErrorsException("Too many players");
             }
 
-            // Regeln für die kern-Einstellungen
+            // Regeln fÃ¼r die kern-Einstellungen
             Settings.RuleCheck();
         }
 
@@ -206,7 +206,7 @@ namespace AntMe.Simulation
         }
 
         /// <summary>
-        /// Gibt die Anzahl Durchläufe insgesamt an, die in der Simulation durchlaufen werden sollen oder legt diese fest.
+        /// Gibt die Anzahl DurchlÃ¤ufe insgesamt an, die in der Simulation durchlaufen werden sollen oder legt diese fest.
         /// </summary>
         public int LoopCount
         {
@@ -233,7 +233,7 @@ namespace AntMe.Simulation
         }
 
         /// <summary>
-        /// Legt die Timeout-Zeit von Durchläufen in ms fest
+        /// Legt die Timeout-Zeit von DurchlÃ¤ufen in ms fest
         /// </summary>
         public int LoopTimeout
         {
@@ -277,7 +277,7 @@ namespace AntMe.Simulation
         }
 
         /// <summary>
-        /// Legt fest, ob es den Spielern erlaubt ist Datenbankverbindungen zu öffnen
+        /// Legt fest, ob es den Spielern erlaubt ist Datenbankverbindungen zu Ã¶ffnen
         /// </summary>
         public bool AllowDatabaseAccess
         {
@@ -286,7 +286,7 @@ namespace AntMe.Simulation
         }
 
         /// <summary>
-        /// Legt fest, ob es den Spielern erlaubt ist eine Netzwerkverbindung zu öffnen
+        /// Legt fest, ob es den Spielern erlaubt ist eine Netzwerkverbindung zu Ã¶ffnen
         /// </summary>
         public bool AllowNetworkAccess
         {
@@ -304,7 +304,7 @@ namespace AntMe.Simulation
         }
 
         /// <summary>
-        /// Gibt einen Startwert für die Initialisierung des Zufallsgenerators an. Durch einen gleichen
+        /// Gibt einen Startwert fÃ¼r die Initialisierung des Zufallsgenerators an. Durch einen gleichen
         /// Startwert werden gleiche Startbedingungen garantiert.
         /// </summary>
         public int MapInitialValue

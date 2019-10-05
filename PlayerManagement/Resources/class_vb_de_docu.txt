@@ -1,19 +1,19 @@
-Imports System.Collections.Generic
+ï»¿Imports System.Collections.Generic
 
 Imports AntMe.Deutsch
 
 ''' <summary>
-''' Diese Datei enthält die Beschreibung für deine Ameise. Die einzelnen Code-Blöcke 
+''' Diese Datei enthÃ¤lt die Beschreibung fÃ¼r deine Ameise. Die einzelnen Code-BlÃ¶cke 
 ''' (Beginnend mit "public override void") fassen zusammen, wie deine Ameise in den 
 ''' entsprechenden Situationen reagieren soll. Welche Befehle du hier verwenden kannst, 
-''' findest du auf der Befehlsübersicht im Wiki (http://wiki.antme.net/de/API1:Befehlsliste).
+''' findest du auf der BefehlsÃ¼bersicht im Wiki (http://wiki.antme.net/de/API1:Befehlsliste).
 ''' 
-''' Wenn du etwas Unterstützung bei der Erstellung einer Ameise brauchst, findest du
-''' in den AntMe!-Lektionen ein paar Schritt-für-Schritt Anleitungen.
+''' Wenn du etwas UnterstÃ¼tzung bei der Erstellung einer Ameise brauchst, findest du
+''' in den AntMe!-Lektionen ein paar Schritt-fÃ¼r-Schritt Anleitungen.
 ''' (http://wiki.antme.net/de/Lektionen)
 '''
 ''' Kasten stellen "Berufsgruppen" innerhalb deines Ameisenvolkes dar. Du kannst hier mit
-''' den Fähigkeiten einzelner Ameisen arbeiten. Wie genau das funktioniert kannst du der 
+''' den FÃ¤higkeiten einzelner Ameisen arbeiten. Wie genau das funktioniert kannst du der 
 ''' Lektion zur Spezialisierung von Ameisen entnehmen (http://wiki.antme.net/de/Lektion7).
 ''' </summary>
 <Spieler( _
@@ -38,14 +38,14 @@ Public Class {0}
 
     ''' <summary>
     ''' Jedes mal, wenn eine neue Ameise geboren wird, muss ihre Berufsgruppe
-    ''' bestimmt werden. Das kannst du mit Hilfe dieses Rückgabewertes dieser 
+    ''' bestimmt werden. Das kannst du mit Hilfe dieses RÃ¼ckgabewertes dieser 
     ''' Methode steuern.
     ''' Weitere Infos unter http://wiki.antme.net/de/API1:BestimmeKaste
     ''' </summary>
     ''' <param name="anzahl">Anzahl Ameisen pro Kaste</param>
-    ''' <returns>Name der Kaste zu der die geborene Ameise gehören soll</returns>
+    ''' <returns>Name der Kaste zu der die geborene Ameise gehÃ¶ren soll</returns>
     Public Overrides Function BestimmeKaste(ByVal anzahl As Dictionary(Of String, Integer)) As String
-        '' Gibt den Namen der betroffenen Kaste zurück.
+        '' Gibt den Namen der betroffenen Kaste zurÃ¼ck.
         Return "Standard"
     End Function
 
@@ -54,7 +54,7 @@ Public Class {0}
 #Region "Fortbewegung"
 
     ''' <summary>
-    ''' Wenn die Ameise keinerlei Aufträge hat, wartet sie auf neue Aufgaben. Um dir das 
+    ''' Wenn die Ameise keinerlei AuftrÃ¤ge hat, wartet sie auf neue Aufgaben. Um dir das 
     ''' mitzuteilen, wird diese Methode hier aufgerufen.
     ''' Weitere Infos unter http://wiki.antme.net/de/API1:Wartet
     ''' </summary>
@@ -65,13 +65,13 @@ Public Class {0}
     ''' Erreicht eine Ameise ein drittel ihrer Laufreichweite, wird diese Methode aufgerufen.
     ''' Weitere Infos unter http://wiki.antme.net/de/API1:WirdM%C3%BCde
     ''' </summary>
-    Public Overrides Sub WirdMüde()
+    Public Overrides Sub WirdMÃ¼de()
     End Sub
 
     ''' <summary>
-    ''' Wenn eine Ameise stirbt, wird diese Methode aufgerufen. Man erfährt dadurch, wie 
+    ''' Wenn eine Ameise stirbt, wird diese Methode aufgerufen. Man erfÃ¤hrt dadurch, wie 
     ''' die Ameise gestorben ist. Die Ameise kann zu diesem Zeitpunkt aber keinerlei Aktion 
-    ''' mehr ausführen.
+    ''' mehr ausfÃ¼hren.
     ''' Weitere Infos unter http://wiki.antme.net/de/API1:IstGestorben
     ''' </summary>
     ''' <param name="todesart">Art des Todes</param>
@@ -79,8 +79,8 @@ Public Class {0}
     End Sub
 
     ''' <summary>
-    ''' Diese Methode wird in jeder Simulationsrunde aufgerufen - ungeachtet von zusätzlichen 
-    ''' Bedingungen. Dies eignet sich für Aktionen, die unter Bedingungen ausgeführt werden 
+    ''' Diese Methode wird in jeder Simulationsrunde aufgerufen - ungeachtet von zusÃ¤tzlichen 
+    ''' Bedingungen. Dies eignet sich fÃ¼r Aktionen, die unter Bedingungen ausgefÃ¼hrt werden 
     ''' sollen, die von den anderen Methoden nicht behandelt werden.
     ''' Weitere Infos unter http://wiki.antme.net/de/API1:Tick
     ''' </summary>
@@ -92,40 +92,40 @@ Public Class {0}
 #Region "Nahrung"
 
     ''' <summary>
-    ''' Sobald eine Ameise innerhalb ihres Sichtradius einen Apfel erspäht wird 
-    ''' diese Methode aufgerufen. Als Parameter kommt das betroffene Stück Obst.
+    ''' Sobald eine Ameise innerhalb ihres Sichtradius einen Apfel erspÃ¤ht wird 
+    ''' diese Methode aufgerufen. Als Parameter kommt das betroffene StÃ¼ck Obst.
     ''' Weitere Infos unter "http://wiki.antme.net/de/API1:Sieht(Obst)"
     ''' </summary>
-    ''' <param name="obst">Das gesichtete Stück Obst</param>
+    ''' <param name="obst">Das gesichtete StÃ¼ck Obst</param>
     Public Overrides Sub Sieht(ByVal obst As Obst)
     End Sub
 
     ''' <summary>
-    ''' Sobald eine Ameise innerhalb ihres Sichtradius einen Zuckerhügel erspäht wird 
-    ''' diese Methode aufgerufen. Als Parameter kommt der betroffene Zuckerghügel.
+    ''' Sobald eine Ameise innerhalb ihres Sichtradius einen ZuckerhÃ¼gel erspÃ¤ht wird 
+    ''' diese Methode aufgerufen. Als Parameter kommt der betroffene ZuckerghÃ¼gel.
     ''' Weitere Infos unter "http://wiki.antme.net/de/API1:Sieht(Zucker)"
     ''' </summary>
-    ''' <param name="zucker">Der gesichtete Zuckerhügel</param>
+    ''' <param name="zucker">Der gesichtete ZuckerhÃ¼gel</param>
     Public Overrides Sub Sieht(ByVal zucker As Zucker)
     End Sub
 
     ''' <summary>
-    ''' Hat die Ameise ein Stück Obst als Ziel festgelegt, wird diese Methode aufgerufen, 
+    ''' Hat die Ameise ein StÃ¼ck Obst als Ziel festgelegt, wird diese Methode aufgerufen, 
     ''' sobald die Ameise ihr Ziel erreicht hat. Ab jetzt ist die Ameise nahe genug um mit 
     ''' dem Ziel zu interagieren.
     ''' Weitere Infos unter "http://wiki.antme.net/de/API1:ZielErreicht(Obst)"
     ''' </summary>
-    ''' <param name="obst">Das erreichte Stück Obst</param>
+    ''' <param name="obst">Das erreichte StÃ¼ck Obst</param>
     Public Overrides Sub ZielErreicht(ByVal obst As Obst)
     End Sub
 
     ''' <summary>
-    ''' Hat die Ameise eine Zuckerhügel als Ziel festgelegt, wird diese Methode aufgerufen, 
+    ''' Hat die Ameise eine ZuckerhÃ¼gel als Ziel festgelegt, wird diese Methode aufgerufen, 
     ''' sobald die Ameise ihr Ziel erreicht hat. Ab jetzt ist die Ameise nahe genug um mit 
     ''' dem Ziel zu interagieren.
     ''' Weitere Infos unter "http://wiki.antme.net/de/API1:ZielErreicht(Zucker)"
     ''' </summary>
-    ''' <param name="zucker">Der erreichte Zuckerhügel</param>
+    ''' <param name="zucker">Der erreichte ZuckerhÃ¼gel</param>
     Public Overrides Sub ZielErreicht(ByVal zucker As Zucker)
     End Sub
 
@@ -134,7 +134,7 @@ Public Class {0}
 #Region "Kommunikation"
 
     ''' <summary>
-    ''' Markierungen, die von anderen Ameisen platziert werden, können von befreundeten Ameisen 
+    ''' Markierungen, die von anderen Ameisen platziert werden, kÃ¶nnen von befreundeten Ameisen 
     ''' gewittert werden. Diese Methode wird aufgerufen, wenn eine Ameise zum ersten Mal eine 
     ''' befreundete Markierung riecht.
     ''' Weitere Infos unter "http://wiki.antme.net/de/API1:RiechtFreund(Markierung)"
@@ -144,23 +144,23 @@ Public Class {0}
     End Sub
 
     ''' <summary>
-    ''' So wie Ameisen unterschiedliche Nahrungsmittel erspähen können, entdecken Sie auch 
+    ''' So wie Ameisen unterschiedliche Nahrungsmittel erspÃ¤hen kÃ¶nnen, entdecken Sie auch 
     ''' andere Spielelemente. Entdeckt die Ameise eine Ameise aus dem eigenen Volk, so 
     ''' wird diese Methode aufgerufen.
     ''' Weitere Infos unter "http://wiki.antme.net/de/API1:SiehtFreund(Ameise)"
     ''' </summary>
-    ''' <param name="ameise">Erspähte befreundete Ameise</param>
+    ''' <param name="ameise">ErspÃ¤hte befreundete Ameise</param>
     Public Overrides Sub SiehtFreund(ByVal ameise As Ameise)
     End Sub
 
     ''' <summary>
-    ''' So wie Ameisen unterschiedliche Nahrungsmittel erspähen können, entdecken Sie auch 
+    ''' So wie Ameisen unterschiedliche Nahrungsmittel erspÃ¤hen kÃ¶nnen, entdecken Sie auch 
     ''' andere Spielelemente. Entdeckt die Ameise eine Ameise aus einem befreundeten Volk 
-    ''' (Völker im selben Team), so wird diese Methode aufgerufen.
+    ''' (VÃ¶lker im selben Team), so wird diese Methode aufgerufen.
     ''' Weitere Infos unter "http://wiki.antme.net/de/API1:SiehtVerb%C3%BCndeten(Ameise)"
     ''' </summary>
-    ''' <param name="ameise">Erspähte verbündete Ameise</param>
-    Public Overrides Sub SiehtVerbündeten(ByVal ameise As Ameise)
+    ''' <param name="ameise">ErspÃ¤hte verbÃ¼ndete Ameise</param>
+    Public Overrides Sub SiehtVerbÃ¼ndeten(ByVal ameise As Ameise)
     End Sub
 
 #End Region
@@ -168,28 +168,28 @@ Public Class {0}
 #Region "Kampf"
 
     ''' <summary>
-    ''' So wie Ameisen unterschiedliche Nahrungsmittel erspähen können, entdecken Sie auch 
+    ''' So wie Ameisen unterschiedliche Nahrungsmittel erspÃ¤hen kÃ¶nnen, entdecken Sie auch 
     ''' andere Spielelemente. Entdeckt die Ameise eine Ameise aus einem feindlichen Volk, 
     ''' so wird diese Methode aufgerufen.
     ''' Weitere Infos unter "http://wiki.antme.net/de/API1:SiehtFeind(Ameise)"
     ''' </summary>
-    ''' <param name="ameise">Erspähte feindliche Ameise</param>
+    ''' <param name="ameise">ErspÃ¤hte feindliche Ameise</param>
     Public Overrides Sub SiehtFeind(ByVal ameise As Ameise)
     End Sub
 
     ''' <summary>
-    ''' So wie Ameisen unterschiedliche Nahrungsmittel erspähen können, entdecken Sie auch 
+    ''' So wie Ameisen unterschiedliche Nahrungsmittel erspÃ¤hen kÃ¶nnen, entdecken Sie auch 
     ''' andere Spielelemente. Entdeckt die Ameise eine Wanze, so wird diese Methode aufgerufen.
     ''' Weitere Infos unter "http://wiki.antme.net/de/API1:SiehtFeind(Wanze)"
     ''' </summary>
-    ''' <param name="wanze">Erspähte Wanze</param>
+    ''' <param name="wanze">ErspÃ¤hte Wanze</param>
     Public Overrides Sub SiehtFeind(ByVal wanze As Wanze)
     End Sub
 
     ''' <summary>
     ''' Es kann vorkommen, dass feindliche Lebewesen eine Ameise aktiv angreifen. Sollte 
     ''' eine feindliche Ameise angreifen, wird diese Methode hier aufgerufen und die 
-    ''' Ameise kann entscheiden, wie sie darauf reagieren möchte.
+    ''' Ameise kann entscheiden, wie sie darauf reagieren mÃ¶chte.
     ''' Weitere Infos unter "http://wiki.antme.net/de/API1:WirdAngegriffen(Ameise)"
     ''' </summary>
     ''' <param name="ameise">Angreifende Ameise</param>
@@ -199,7 +199,7 @@ Public Class {0}
     ''' <summary>
     ''' Es kann vorkommen, dass feindliche Lebewesen eine Ameise aktiv angreifen. Sollte 
     ''' eine Wanze angreifen, wird diese Methode hier aufgerufen und die Ameise kann 
-    ''' entscheiden, wie sie darauf reagieren möchte.
+    ''' entscheiden, wie sie darauf reagieren mÃ¶chte.
     ''' Weitere Infos unter "http://wiki.antme.net/de/API1:WirdAngegriffen(Wanze)"
     ''' </summary>
     ''' <param name="wanze">Angreifende Wanze</param>

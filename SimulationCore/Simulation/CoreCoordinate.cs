@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 
 namespace AntMe.Simulation
 {
@@ -27,9 +27,9 @@ namespace AntMe.Simulation
             this.x = x * SimulationEnvironment.PLAYGROUND_UNIT;
             this.y = y * SimulationEnvironment.PLAYGROUND_UNIT;
 
-            // In diesem Konstruktor müssen alle Werte der Struktur initialisiert
+            // In diesem Konstruktor mÃ¼ssen alle Werte der Struktur initialisiert
             // werden, deswegen werden Radius und Richtung hier gesetzt, obwohl sie
-            // im Anschluß gleich wieder überschrieben werden.
+            // im AnschluÃŸ gleich wieder Ã¼berschrieben werden.
             this.radius = 0;
             this.richtung = 0;
 
@@ -112,7 +112,7 @@ namespace AntMe.Simulation
         /// <summary>
         /// Die Richtung in die das Element blickt. Eine Richtung ist zwar kein
         /// echter Teil einer Koordinate und nicht alle Elemente die eine Koordinate
-        /// haben benötigen die Richtung, aber die IKoordinate-Struktur ist der
+        /// haben benÃ¶tigen die Richtung, aber die IKoordinate-Struktur ist der
         /// beste Platz um auch die Richtung eines Objektes zu speichern.
         /// </summary>
         internal int Richtung

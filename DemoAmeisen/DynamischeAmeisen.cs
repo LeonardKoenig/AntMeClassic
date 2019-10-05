@@ -1,4 +1,4 @@
-using System;
+Ôªøusing System;
 using System.Collections.Generic;
 
 using AntMe.Deutsch;
@@ -120,9 +120,9 @@ namespace AntMe.Spieler.WolfgangGallo
 
 		/// <summary>
 		/// Wird einmal aufgerufen, wenn die Ameise ein Drittel ihrer maximalen
-		/// Reichweite ¸berschritten hat.
+		/// Reichweite √ºberschritten hat.
 		/// </summary>
-		public override void WirdM¸de() {}
+		public override void WirdM√ºde() {}
 
 		#endregion
 		#region Nahrung
@@ -133,13 +133,13 @@ namespace AntMe.Spieler.WolfgangGallo
 		/// Wird wiederholt aufgerufen, wenn die Ameise mindestens einen
 		/// Zuckerhaufen sieht.
 		/// </summary>
-		/// <param name="zucker">Der n‰chstgelegene Zuckerhaufen.</param>
+		/// <param name="zucker">Der n√§chstgelegene Zuckerhaufen.</param>
 		public override void Sieht(Zucker zucker)
 		{
 			if (gemerkterZucker == null)
 				gemerkterZucker = zucker;
 
-			Spr¸heMarkierung(0, 60);
+			Spr√ºheMarkierung(0, 60);
 
 			if (Kaste.Substring(0, 7) == "Sammler" && Ziel == null)
 				GeheZuZiel(zucker);
@@ -147,14 +147,14 @@ namespace AntMe.Spieler.WolfgangGallo
 
 		/// <summary>
 		/// Wird wiederholt aufgerufen, wenn die Ameise mindstens ein
-		/// Obstst¸ck sieht.
+		/// Obstst√ºck sieht.
 		/// </summary>
-		/// <param name="obst">Das n‰chstgelegene Obstst¸ck.</param>
+		/// <param name="obst">Das n√§chstgelegene Obstst√ºck.</param>
 		public override void Sieht(Obst obst)
 		{
-			if (BrauchtNochTr‰ger(obst))
+			if (BrauchtNochTr√§ger(obst))
 			{
-				Spr¸heMarkierung
+				Spr√ºheMarkierung
 					(Koordinate.BestimmeRichtung(this, obst),
 					 Koordinate.BestimmeEntfernung(this, obst));
 
@@ -175,13 +175,13 @@ namespace AntMe.Spieler.WolfgangGallo
 		}
 
 		/// <summary>
-		/// Wird einmal aufgerufen, wenn die Ameise ein Obstst¸ck als Ziel hat und
+		/// Wird einmal aufgerufen, wenn die Ameise ein Obstst√ºck als Ziel hat und
 		/// bei diesem ankommt.
 		/// </summary>
-		/// <param name="obst">Das Obst¸ck.</param>
+		/// <param name="obst">Das Obst√ºck.</param>
 		public override void ZielErreicht(Obst obst)
 		{
-			if (BrauchtNochTr‰ger(obst))
+			if (BrauchtNochTr√§ger(obst))
 			{
 				Nimm(obst);
 				GeheZuBau();
@@ -196,7 +196,7 @@ namespace AntMe.Spieler.WolfgangGallo
 		/// Volkes riecht. Einmal gerochene Markierungen werden nicht erneut
 		/// gerochen.
 		/// </summary>
-		/// <param name="markierung">Die n‰chste neue Markierung.</param>
+		/// <param name="markierung">Die n√§chste neue Markierung.</param>
 		public override void RiechtFreund(Markierung markierung)
 		{
 			if (Ziel == null)
@@ -207,20 +207,20 @@ namespace AntMe.Spieler.WolfgangGallo
 		/// Wird wiederholt aufgerufen, wenn die Ameise mindstens eine Ameise des
 		/// selben Volkes sieht.
 		/// </summary>
-		/// <param name="ameise">Die n‰chstgelegene befreundete Ameise.</param>
+		/// <param name="ameise">Die n√§chstgelegene befreundete Ameise.</param>
 		public override void SiehtFreund(Ameise ameise) {}
 
 		#endregion
 		#region Kampf
 
 		/// <summary>
-		/// Wird wiederholt aufgerufen, wenn die Ameise mindestens einen K‰fer
+		/// Wird wiederholt aufgerufen, wenn die Ameise mindestens einen K√§fer
 		/// sieht.
 		/// </summary>
-		/// <param name="wanze">Der n‰chstgelegene K‰fer.</param>
+		/// <param name="wanze">Der n√§chstgelegene K√§fer.</param>
 		public override void SiehtFeind(Wanze wanze)
 		{
-			Spr¸heMarkierung(0, 60);
+			Spr√ºheMarkierung(0, 60);
 
 			if (Kaste.Substring(0, 7) == "Krieger" && Ziel == null)
 				GreifeAn(wanze);
@@ -230,7 +230,7 @@ namespace AntMe.Spieler.WolfgangGallo
 		/// Wird wiederholt aufgerufen, wenn die Ameise mindestens eine Ameise eines
 		/// anderen Volkes sieht.
 		/// </summary>
-		/// <param name="ameise">Die n‰chstgelegen feindliche Ameise.</param>
+		/// <param name="ameise">Die n√§chstgelegen feindliche Ameise.</param>
 		public override void SiehtFeind(Ameise ameise)
 		{
 			if (Kaste.Substring(0, 7) == "Krieger" && Ziel == null)
@@ -238,10 +238,10 @@ namespace AntMe.Spieler.WolfgangGallo
 		}
 
 		/// <summary>
-		/// Wird wiederholt aufgerufen, wenn die Ameise von einem K‰fer angegriffen
+		/// Wird wiederholt aufgerufen, wenn die Ameise von einem K√§fer angegriffen
 		/// wird.
 		/// </summary>
-		/// <param name="wanze">Der angreifende K‰fer.</param>
+		/// <param name="wanze">Der angreifende K√§fer.</param>
 		public override void WirdAngegriffen(Wanze wanze)
 		{
 			if (Kaste.Substring(0, 7) == "Krieger" && Ziel == null)
@@ -308,7 +308,7 @@ namespace AntMe.Spieler.WolfgangGallo
 		}
 
 		/// <summary>
-		/// Wird unabh‰ngig von ‰uﬂeren Umst‰nden in jeder Runde aufgerufen.
+		/// Wird unabh√§ngig von √§u√üeren Umst√§nden in jeder Runde aufgerufen.
 		/// </summary>
 		public override void Tick()
 		{

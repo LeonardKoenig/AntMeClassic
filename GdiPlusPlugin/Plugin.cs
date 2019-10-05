@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -48,7 +48,7 @@ namespace AntMe.Plugin.GdiPlusPlugin
         }
 
         /// <summary>
-        /// Hält den Betrieb des Plugins an.
+        /// HÃ¤lt den Betrieb des Plugins an.
         /// </summary>
         public void Pause()
         {
@@ -56,7 +56,7 @@ namespace AntMe.Plugin.GdiPlusPlugin
         }
 
         /// <summary>
-        /// Gibt den Namen des Plugins zurück.
+        /// Gibt den Namen des Plugins zurÃ¼ck.
         /// </summary>
         public string Name
         {
@@ -64,7 +64,7 @@ namespace AntMe.Plugin.GdiPlusPlugin
         }
 
         /// <summary>
-        /// Gibt einen Beschreibungstext dieses Plugins zurück.
+        /// Gibt einen Beschreibungstext dieses Plugins zurÃ¼ck.
         /// </summary>
         public string Description
         {
@@ -72,7 +72,7 @@ namespace AntMe.Plugin.GdiPlusPlugin
         }
 
         /// <summary>
-        /// Gibt die Versionsnummer dieses Plugins zurück.
+        /// Gibt die Versionsnummer dieses Plugins zurÃ¼ck.
         /// </summary>
         public Version Version
         {
@@ -80,7 +80,7 @@ namespace AntMe.Plugin.GdiPlusPlugin
         }
 
         /// <summary>
-        /// Gibt die GUID dieses Plugins zurück.
+        /// Gibt die GUID dieses Plugins zurÃ¼ck.
         /// </summary>
         public Guid Guid
         {
@@ -88,7 +88,7 @@ namespace AntMe.Plugin.GdiPlusPlugin
         }
 
         /// <summary>
-        /// Liefert den aktuellen Status des Plugins zurück.
+        /// Liefert den aktuellen Status des Plugins zurÃ¼ck.
         /// </summary>
         public PluginState State
         {
@@ -106,7 +106,7 @@ namespace AntMe.Plugin.GdiPlusPlugin
 
         /// <summary>
         /// Gibt einen Bytearray aus serialisierten Konfigurationsdaten dieses 
-        /// Plugins zurück oder legt diesen fest.
+        /// Plugins zurÃ¼ck oder legt diesen fest.
         /// </summary>
         public byte[] Settings
         {
@@ -149,7 +149,7 @@ namespace AntMe.Plugin.GdiPlusPlugin
         {
             get
 			{ 
-				// Wenn das Spiel läuft oder pausiert ist (also nicht nur bereit)
+				// Wenn das Spiel lÃ¤uft oder pausiert ist (also nicht nur bereit)
 				// und das Fenster nicht sichtbar, dann wurde es geschlossen und
 				// die Simulation kann abgebrochen werden.
 				return (pluginStatus != PluginState.Ready && !window.Visible);

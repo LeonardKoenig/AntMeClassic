@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 
 using AntMe.Deutsch;
@@ -29,10 +29,10 @@ namespace AntMe.Spieler.WolfgangGallo
 		// Speichert wieviele Ameisen bereits insgesamt erzeugt wurden.
 		private static int anzahlGesamt = 0;
 
-		// Speichert die Gruppenführer aller Gruppen.
-		private static GruppenAmeise[] gruppenführer = new GruppenAmeise[10];
+		// Speichert die GruppenfÃ¼hrer aller Gruppen.
+		private static GruppenAmeise[] gruppenfÃ¼hrer = new GruppenAmeise[10];
 
-		// Speichert zu welcher Gruppe die Ameise gehört.
+		// Speichert zu welcher Gruppe die Ameise gehÃ¶rt.
 		private int gruppe;
 
 		/// <summary>
@@ -70,9 +70,9 @@ namespace AntMe.Spieler.WolfgangGallo
 		/// </summary>
 		public override void Wartet()
 		{
-			// Wenn die Ameise der Gruppenführer ist, dann lege die Bewegung fest.
-			if (gruppenführer[gruppe] == this)
-				if (IstMüde || AktuelleEnergie < MaximaleEnergie / 2)
+			// Wenn die Ameise der GruppenfÃ¼hrer ist, dann lege die Bewegung fest.
+			if (gruppenfÃ¼hrer[gruppe] == this)
+				if (IstMÃ¼de || AktuelleEnergie < MaximaleEnergie / 2)
 					GeheZuBau();
 				else
 					GeheGeradeaus();
@@ -80,9 +80,9 @@ namespace AntMe.Spieler.WolfgangGallo
 
 		/// <summary>
 		/// Wird einmal aufgerufen, wenn die Ameise ein Drittel ihrer maximalen
-		/// Reichweite überschritten hat.
+		/// Reichweite Ã¼berschritten hat.
 		/// </summary>
-		public override void WirdMüde() {}
+		public override void WirdMÃ¼de() {}
 
 		#endregion
 		#region Nahrung
@@ -91,33 +91,33 @@ namespace AntMe.Spieler.WolfgangGallo
 		/// Wird wiederholt aufgerufen, wenn die Ameise mindestens einen
 		/// Zuckerhaufen sieht.
 		/// </summary>
-		/// <param name="zucker">Der nächstgelegene Zuckerhaufen.</param>
+		/// <param name="zucker">Der nÃ¤chstgelegene Zuckerhaufen.</param>
 		public override void Sieht(Zucker zucker)
 		{
-			// Eine Markierung darf jede Ameise sprühen.
+			// Eine Markierung darf jede Ameise sprÃ¼hen.
 			int richtung = Koordinate.BestimmeRichtung(this, zucker);
 			int entfernung = Koordinate.BestimmeEntfernung(this, zucker);
-			SprüheMarkierung(richtung, entfernung);
+			SprÃ¼heMarkierung(richtung, entfernung);
 
-			// Ein Ziel darf nur der Gruppenführer vorgeben.
-			if (gruppenführer[gruppe] == this && (Ziel == null || Ziel is Insekt))
+			// Ein Ziel darf nur der GruppenfÃ¼hrer vorgeben.
+			if (gruppenfÃ¼hrer[gruppe] == this && (Ziel == null || Ziel is Insekt))
 				GeheZuZiel(zucker);
 		}
 
 		/// <summary>
 		/// Wird wiederholt aufgerufen, wenn die Ameise mindstens ein
-		/// Obststück sieht.
+		/// ObststÃ¼ck sieht.
 		/// </summary>
-		/// <param name="obst">Das nächstgelegene Obststück.</param>
+		/// <param name="obst">Das nÃ¤chstgelegene ObststÃ¼ck.</param>
 		public override void Sieht(Obst obst)
 		{
-			// Eine Markierung darf jede Ameise sprühen.
+			// Eine Markierung darf jede Ameise sprÃ¼hen.
 			int richtung = Koordinate.BestimmeRichtung(this, obst);
 			int entfernung = Koordinate.BestimmeEntfernung(this, obst);
-			SprüheMarkierung(richtung, entfernung);
+			SprÃ¼heMarkierung(richtung, entfernung);
 
-			// Ein Ziel darf nur der Gruppenführer vorgeben.
-			if (gruppenführer[gruppe] == this && (Ziel == null || Ziel is Insekt))
+			// Ein Ziel darf nur der GruppenfÃ¼hrer vorgeben.
+			if (gruppenfÃ¼hrer[gruppe] == this && (Ziel == null || Ziel is Insekt))
 				GeheZuZiel(obst);
 		}
 
@@ -128,20 +128,20 @@ namespace AntMe.Spieler.WolfgangGallo
 		/// <param name="zucker">Der Zuckerhaufen.</param>
 		public override void ZielErreicht(Zucker zucker)
 		{
-			// Das Ziel Ameisenbau hat der Gruppenführer dadurch vorgegeben, dass er
+			// Das Ziel Ameisenbau hat der GruppenfÃ¼hrer dadurch vorgegeben, dass er
 			// zuvor das Ziel auf den Zucker gesetzt hat.
 			Nimm(zucker);
 			GeheZuBau();
 		}
 
 		/// <summary>
-		/// Wird einmal aufgerufen, wenn die Ameise ein Obststück als Ziel hat und
+		/// Wird einmal aufgerufen, wenn die Ameise ein ObststÃ¼ck als Ziel hat und
 		/// bei diesem ankommt.
 		/// </summary>
-		/// <param name="obst">Das Obstück.</param>
+		/// <param name="obst">Das ObstÃ¼ck.</param>
 		public override void ZielErreicht(Obst obst)
 		{
-			// Das Ziel Ameisenbau hat der Gruppenführer dadurch vorgegeben, dass er
+			// Das Ziel Ameisenbau hat der GruppenfÃ¼hrer dadurch vorgegeben, dass er
 			// zuvor das Ziel auf das Obst gesetzt hat.
 			Nimm(obst);
 			GeheZuBau();
@@ -155,10 +155,10 @@ namespace AntMe.Spieler.WolfgangGallo
 		/// Volkes riecht. Einmal gerochene Markierungen werden nicht erneut
 		/// gerochen.
 		/// </summary>
-		/// <param name="markierung">Die nächste neue Markierung.</param>
+		/// <param name="markierung">Die nÃ¤chste neue Markierung.</param>
 		public override void RiechtFreund(Markierung markierung)
 		{
-			if (gruppenführer[gruppe] == this && Ziel == null)
+			if (gruppenfÃ¼hrer[gruppe] == this && Ziel == null)
 			{
 				DreheInRichtung(markierung.Information);
 				GeheGeradeaus(20);
@@ -169,20 +169,20 @@ namespace AntMe.Spieler.WolfgangGallo
 		/// Wird wiederholt aufgerufen, wenn die Ameise mindstens eine Ameise des
 		/// selben Volkes sieht.
 		/// </summary>
-		/// <param name="ameise">Die nächstgelegene befreundete Ameise.</param>
+		/// <param name="ameise">Die nÃ¤chstgelegene befreundete Ameise.</param>
 		public override void SiehtFreund(Ameise ameise) {}
 
 		#endregion
 		#region Kampf
 
 		/// <summary>
-		/// Wird wiederholt aufgerufen, wenn die Ameise mindestens einen Käfer
+		/// Wird wiederholt aufgerufen, wenn die Ameise mindestens einen KÃ¤fer
 		/// sieht.
 		/// </summary>
-        /// <param name="wanze">Der nächstgelegene Käfer.</param>
+        /// <param name="wanze">Der nÃ¤chstgelegene KÃ¤fer.</param>
 		public override void SiehtFeind(Wanze wanze)
 		{
-            if (gruppenführer[gruppe] == this && 10 * MaximaleEnergie > wanze.AktuelleEnergie)
+            if (gruppenfÃ¼hrer[gruppe] == this && 10 * MaximaleEnergie > wanze.AktuelleEnergie)
 			{
 				LasseNahrungFallen();
                 GreifeAn(wanze);
@@ -193,10 +193,10 @@ namespace AntMe.Spieler.WolfgangGallo
 		/// Wird wiederholt aufgerufen, wenn die Ameise mindestens eine Ameise eines
 		/// anderen Volkes sieht.
 		/// </summary>
-		/// <param name="ameise">Die nächstgelegen feindliche Ameise.</param>
+		/// <param name="ameise">Die nÃ¤chstgelegen feindliche Ameise.</param>
 		public override void SiehtFeind(Ameise ameise)
 		{
-			if (gruppenführer[gruppe] == this && Ziel == null &&
+			if (gruppenfÃ¼hrer[gruppe] == this && Ziel == null &&
 			    10 * MaximaleEnergie > ameise.AktuelleEnergie &&
 			    MaximaleGeschwindigkeit > ameise.MaximaleGeschwindigkeit)
 			{
@@ -206,10 +206,10 @@ namespace AntMe.Spieler.WolfgangGallo
 		}
 
 		/// <summary>
-		/// Wird wiederholt aufgerufen, wenn die Ameise von einem Käfer angegriffen
+		/// Wird wiederholt aufgerufen, wenn die Ameise von einem KÃ¤fer angegriffen
 		/// wird.
 		/// </summary>
-        /// <param name="wanze">Der angreifende Käfer.</param>
+        /// <param name="wanze">Der angreifende KÃ¤fer.</param>
         public override void WirdAngegriffen(Wanze wanze) { }
 
 		/// <summary>
@@ -223,7 +223,7 @@ namespace AntMe.Spieler.WolfgangGallo
 		#region Sonstiges
 
 		// Speichert ob die Ameise nahe bei der Gruppe ist oder zu weit weg. Wird
-		// von Gruppenführern und Gruppenmitgliedern unterschiedlich verwendet.
+		// von GruppenfÃ¼hrern und Gruppenmitgliedern unterschiedlich verwendet.
 		private bool istBeiGruppe = false;
 
 		/// <summary>
@@ -233,20 +233,20 @@ namespace AntMe.Spieler.WolfgangGallo
 		public override void IstGestorben(Todesart todesart) {}
 
 		/// <summary>
-		/// Wird unabhängig von äußeren Umständen in jeder Runde aufgerufen.
+		/// Wird unabhÃ¤ngig von Ã¤uÃŸeren UmstÃ¤nden in jeder Runde aufgerufen.
 		/// </summary>
 		public override void Tick()
 		{
-			// Ameisenstraße wie gehabt.
+			// AmeisenstraÃŸe wie gehabt.
 			if (Ziel is Bau && AktuelleLast > 0 && GetragenesObst == null)
-				SprüheMarkierung(Richtung + 180);
+				SprÃ¼heMarkierung(Richtung + 180);
 
-			// Wenn die Stelle frei ist, dann bestimme die Ameise zum Gruppenführer.
-			if (gruppenführer[gruppe] == null || gruppenführer[gruppe].AktuelleEnergie <= 0)
-				gruppenführer[gruppe] = this;
+			// Wenn die Stelle frei ist, dann bestimme die Ameise zum GruppenfÃ¼hrer.
+			if (gruppenfÃ¼hrer[gruppe] == null || gruppenfÃ¼hrer[gruppe].AktuelleEnergie <= 0)
+				gruppenfÃ¼hrer[gruppe] = this;
 
-			// Wenn die Ameise der Gruppenführer ist, dann warte ggf. auf die Gruppe.
-			if (gruppenführer[gruppe] == this)
+			// Wenn die Ameise der GruppenfÃ¼hrer ist, dann warte ggf. auf die Gruppe.
+			if (gruppenfÃ¼hrer[gruppe] == this)
 			{
 				if (!istBeiGruppe)
 				{
@@ -264,62 +264,62 @@ namespace AntMe.Spieler.WolfgangGallo
 			if (Ziel != null)
 				return;
 
-			// Wenn der Gruppenführer einen Feind angreift, dann lasse die Nahrung
+			// Wenn der GruppenfÃ¼hrer einen Feind angreift, dann lasse die Nahrung
 			// fallen und greife ebenfalls an.
-			if (gruppenführer[gruppe].Ziel is Insekt)
+			if (gruppenfÃ¼hrer[gruppe].Ziel is Insekt)
 			{
 				LasseNahrungFallen();
-				GreifeAn((Insekt)gruppenführer[gruppe].Ziel);
+				GreifeAn((Insekt)gruppenfÃ¼hrer[gruppe].Ziel);
 				return;
 			}
 
-			// Wenn der Gruppenführer einen Apfel trägt oder zu einem Apfel oder zu
+			// Wenn der GruppenfÃ¼hrer einen Apfel trÃ¤gt oder zu einem Apfel oder zu
 			// einem Zuckerhaufen geht, dann gehe auch dort hin.
-			if (gruppenführer[gruppe].GetragenesObst != null)
+			if (gruppenfÃ¼hrer[gruppe].GetragenesObst != null)
 			{
-				GeheZuZiel(gruppenführer[gruppe].GetragenesObst);
+				GeheZuZiel(gruppenfÃ¼hrer[gruppe].GetragenesObst);
 				return;
 			}
-			if (gruppenführer[gruppe].Ziel is Nahrung)
+			if (gruppenfÃ¼hrer[gruppe].Ziel is Nahrung)
 			{
-				GeheZuZiel(gruppenführer[gruppe].Ziel);
+				GeheZuZiel(gruppenfÃ¼hrer[gruppe].Ziel);
 				return;
 			}
 
 			int entfernung =
-				Koordinate.BestimmeEntfernung(this, gruppenführer[gruppe]);
+				Koordinate.BestimmeEntfernung(this, gruppenfÃ¼hrer[gruppe]);
 
-			// Prüfe ob die Ameise den Anschluß zur Gruppe verloren hat.
+			// PrÃ¼fe ob die Ameise den AnschluÃŸ zur Gruppe verloren hat.
 			if (istBeiGruppe && entfernung > 64)
 				istBeiGruppe = false;
 
-			// Prüfe ob die Ameise den Anschluß zur Gruppe wiedergefunden hat.
+			// PrÃ¼fe ob die Ameise den AnschluÃŸ zur Gruppe wiedergefunden hat.
 			if (!istBeiGruppe && entfernung < 16)
 				istBeiGruppe = true;
 
-			// Gehe zum Gruppenführer und sag ihm, dass er warten soll.
+			// Gehe zum GruppenfÃ¼hrer und sag ihm, dass er warten soll.
 			if (!istBeiGruppe)
 			{
-				int richtung = Koordinate.BestimmeRichtung(this, gruppenführer[gruppe]);
+				int richtung = Koordinate.BestimmeRichtung(this, gruppenfÃ¼hrer[gruppe]);
 				DreheInRichtung(richtung);
 				GeheGeradeaus(entfernung);
-				gruppenführer[gruppe].istBeiGruppe = false;
+				gruppenfÃ¼hrer[gruppe].istBeiGruppe = false;
 				return;
 			}
 
-			// Drehe die Ameise in die Richtung in die der Gruppenführer zeigt.
-			// Wenn die Ameise weniger als 32 Schritte vom Gruppenführer entfernt
-			// ist und ihre Richtung mehr als 135 Grad von der des Gruppenführers
+			// Drehe die Ameise in die Richtung in die der GruppenfÃ¼hrer zeigt.
+			// Wenn die Ameise weniger als 32 Schritte vom GruppenfÃ¼hrer entfernt
+			// ist und ihre Richtung mehr als 135 Grad von der des GruppenfÃ¼hrers
 			// abweicht, dann ist dieser sehr wahrscheinlich vom Spielfeldrand
 			// abgeprallt. In diesem Fall stelle den alten RestWinkel wieder her,
 			// damit die Ameise ebenfalls abprallen kann. Das geht schneller, als
-			// sich in die Richtung des Gruppenführers zu drehen.
+			// sich in die Richtung des GruppenfÃ¼hrers zu drehen.
 			int restWinkel = RestWinkel;
-			DreheInRichtung(gruppenführer[gruppe].Richtung);
+			DreheInRichtung(gruppenfÃ¼hrer[gruppe].Richtung);
 			if (entfernung < 32 && Math.Abs(RestWinkel) > 135)
 				DreheUmWinkel(restWinkel);
 
-			GeheGeradeaus(gruppenführer[gruppe].RestStrecke);
+			GeheGeradeaus(gruppenfÃ¼hrer[gruppe].RestStrecke);
 		}
 
 		#endregion

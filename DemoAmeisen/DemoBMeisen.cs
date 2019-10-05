@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using AntMe.Deutsch;
 
 namespace AntMe.Spieler.WolfgangGallo
@@ -77,7 +77,7 @@ namespace AntMe.Spieler.WolfgangGallo
 		public override void Wartet()
 		{
 
-			if (IstMüde || AktuelleEnergie < MaximaleEnergie / 4)
+			if (IstMÃ¼de || AktuelleEnergie < MaximaleEnergie / 4)
 				GeheZuBau();
 			else 
 				switch (Kaste)
@@ -104,9 +104,9 @@ namespace AntMe.Spieler.WolfgangGallo
 
 		/// <summary>
 		/// Wird einmal aufgerufen, wenn die Ameise ein Drittel ihrer maximalen
-		/// Reichweite überschritten hat.
+		/// Reichweite Ã¼berschritten hat.
 		/// </summary>
-		public override void WirdMüde()
+		public override void WirdMÃ¼de()
 		{
 			if (Ziel == null)
 				GeheZuBau();
@@ -119,7 +119,7 @@ namespace AntMe.Spieler.WolfgangGallo
 		/// Wird wiederholt aufgerufen, wenn die Ameise mindestens einen
 		/// Zuckerhaufen sieht.
 		/// </summary>
-		/// <param name="zucker">Der nächstgelegene Zuckerhaufen.</param>
+		/// <param name="zucker">Der nÃ¤chstgelegene Zuckerhaufen.</param>
 		public override void Sieht(Zucker zucker)
 		{
 			switch (Kaste)
@@ -134,7 +134,7 @@ namespace AntMe.Spieler.WolfgangGallo
 					int entfernung = Koordinate.BestimmeEntfernung(this, zucker);
 					if (entfernung > 50)
 						entfernung = 50;
-					SprüheMarkierung
+					SprÃ¼heMarkierung
 							((ushort)Koordinate.BestimmeRichtung(this, zucker), entfernung);
 					break;
 
@@ -143,9 +143,9 @@ namespace AntMe.Spieler.WolfgangGallo
 
 		/// <summary>
 		/// Wird wiederholt aufgerufen, wenn die Ameise mindstens ein
-		/// Obststück sieht.
+		/// ObststÃ¼ck sieht.
 		/// </summary>
-		/// <param name="obst">Das nächstgelegene Obststück.</param>
+		/// <param name="obst">Das nÃ¤chstgelegene ObststÃ¼ck.</param>
 		public override void Sieht(Obst obst)
 		{
 			switch (Kaste)
@@ -160,7 +160,7 @@ namespace AntMe.Spieler.WolfgangGallo
 					int entfernung = Koordinate.BestimmeEntfernung(this, obst);
 					if (entfernung > 50)
 						entfernung = 50;
-					SprüheMarkierung
+					SprÃ¼heMarkierung
 							((ushort)Koordinate.BestimmeRichtung(this, obst), entfernung);
 					break;
 
@@ -180,14 +180,14 @@ namespace AntMe.Spieler.WolfgangGallo
 		}
 
 		/// <summary>
-		/// Wird einmal aufgerufen, wenn die Ameise ein Obststück als Ziel hat und
+		/// Wird einmal aufgerufen, wenn die Ameise ein ObststÃ¼ck als Ziel hat und
 		/// bei diesem ankommt.
 		/// </summary>
-		/// <param name="obst">Das Obstück.</param>
+		/// <param name="obst">Das ObstÃ¼ck.</param>
 		public override void ZielErreicht(Obst obst)
 		{
 
-			if (BrauchtNochTräger(obst))
+			if (BrauchtNochTrÃ¤ger(obst))
 			{
 				Nimm(obst);
 				GeheZuBau();
@@ -205,7 +205,7 @@ namespace AntMe.Spieler.WolfgangGallo
 		/// Volkes riecht. Einmal gerochene Markierungen werden nicht erneut
 		/// gerochen.
 		/// </summary>
-		/// <param name="markierung">Die nächste neue Markierung.</param>
+		/// <param name="markierung">Die nÃ¤chste neue Markierung.</param>
 		public override void RiechtFreund(Markierung markierung)
 		{
 			switch (Kaste)
@@ -225,7 +225,7 @@ namespace AntMe.Spieler.WolfgangGallo
 						int entfernung = Koordinate.BestimmeEntfernung(this, markierung);
 						if (entfernung > 50)
 							entfernung = 50;
-						SprüheMarkierung(-1, entfernung);
+						SprÃ¼heMarkierung(-1, entfernung);
 						GeheZuZiel(markierung);
 					}
 					break;
@@ -237,10 +237,10 @@ namespace AntMe.Spieler.WolfgangGallo
 		#region Kampf
 
 		/// <summary>
-		/// Wird wiederholt aufgerufen, wenn die Ameise mindestens einen Käfer
+		/// Wird wiederholt aufgerufen, wenn die Ameise mindestens einen KÃ¤fer
 		/// sieht.
 		/// </summary>
-		/// <param name="wanze">Der nächstgelegene Käfer.</param>
+		/// <param name="wanze">Der nÃ¤chstgelegene KÃ¤fer.</param>
 		public override void SiehtFeind(Wanze wanze)
 		{
 			switch (Kaste)
@@ -255,7 +255,7 @@ namespace AntMe.Spieler.WolfgangGallo
 					break;
 
 				case "Krieger":
-					SprüheMarkierung(-1, 50);
+					SprÃ¼heMarkierung(-1, 50);
 					if (Ziel == null)
 						GreifeAn(wanze);
 					break;
@@ -264,10 +264,10 @@ namespace AntMe.Spieler.WolfgangGallo
 		}
 
 		/// <summary>
-		/// Wird wiederholt aufgerufen, wenn die Ameise von einem Käfer angegriffen
+		/// Wird wiederholt aufgerufen, wenn die Ameise von einem KÃ¤fer angegriffen
 		/// wird.
 		/// </summary>
-		/// <param name="wanze">Der angreifende Käfer.</param>
+		/// <param name="wanze">Der angreifende KÃ¤fer.</param>
 		public override void WirdAngegriffen(Wanze wanze)
 		{
 			if (AktuelleEnergie < MaximaleEnergie / 4)
@@ -278,21 +278,21 @@ namespace AntMe.Spieler.WolfgangGallo
 		#region Sonstiges
 
 		/// <summary>
-		/// Wird unabhängig von äußeren Umständen in jeder Runde aufgerufen.
+		/// Wird unabhÃ¤ngig von Ã¤uÃŸeren UmstÃ¤nden in jeder Runde aufgerufen.
 		/// </summary>
 		public override void Tick()
 		{
 
-			if (Ziel is Obst && !BrauchtNochTräger((Obst)Ziel))
+			if (Ziel is Obst && !BrauchtNochTrÃ¤ger((Obst)Ziel))
 				BleibStehen();
 
 			else if (Ziel is Bau && AktuelleLast > 0 && GetragenesObst == null)
-				SprüheMarkierung(Richtung + 180);
+				SprÃ¼heMarkierung(Richtung + 180);
 
 			else if (Ziel is Wanze)
 			{
 				int entfernung = Koordinate.BestimmeEntfernung(this, Ziel);
-				SprüheMarkierung(-1, entfernung);
+				SprÃ¼heMarkierung(-1, entfernung);
 			}
 
 		}

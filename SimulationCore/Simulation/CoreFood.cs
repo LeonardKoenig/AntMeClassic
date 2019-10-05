@@ -1,4 +1,4 @@
-using System;
+Ôªøusing System;
 using System.Collections.Generic;
 
 using AntMe.SharedComponents.States;
@@ -6,15 +6,15 @@ using AntMe.SharedComponents.States;
 namespace AntMe.Simulation
 {
     /// <summary>
-    /// Die abstrakte Basisklasse f¸r Nahrung.
+    /// Die abstrakte Basisklasse f√ºr Nahrung.
     /// </summary>
     internal abstract class CoreFood : ICoordinate
     {
-        // Die Id der n‰chsten erzeugten Nahrung.
+        // Die Id der n√§chsten erzeugten Nahrung.
         private static int neueId = 0;
 
         /// <summary>
-        /// Die Id die die Nahrung w‰hrend eines Spiels eindeutig identifiziert.
+        /// Die Id die die Nahrung w√§hrend eines Spiels eindeutig identifiziert.
         /// </summary>
         public readonly int Id;
 

@@ -1,8 +1,8 @@
-using System;
+﻿using System;
 
 namespace AntMe.Simulation {
     /// <summary>
-    /// SpielerInfo Klasse mit der angabe eines zus�tzlichen Dumps einer Spieler-KI
+    /// SpielerInfo Klasse mit der angabe eines zusätzlichen Dumps einer Spieler-KI
     /// </summary>
     [Serializable]
     public sealed class PlayerInfoFiledump : PlayerInfo {

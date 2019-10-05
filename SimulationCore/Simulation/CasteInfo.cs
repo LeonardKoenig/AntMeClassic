@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 
 using AntMe.SharedComponents.States;
 
@@ -51,7 +51,7 @@ namespace AntMe.Simulation
         public int ViewRange = 0;
 
         /// <summary>
-        /// Prüft, ob diese Ameisenkaste den Regeln entspricht
+        /// PrÃ¼ft, ob diese Ameisenkaste den Regeln entspricht
         /// </summary>
         /// <throws>RuleViolationException</throws>
         public void Rulecheck(string aiName)
@@ -63,7 +63,7 @@ namespace AntMe.Simulation
                     string.Format(Resource.SimulationCoreCasteRuleNoName, aiName));
             }
 
-            // Prüfen, ob der Geschindwigkeitsmodifikator im Rahmen ist
+            // PrÃ¼fen, ob der Geschindwigkeitsmodifikator im Rahmen ist
             if (Speed < SimulationSettings.Custom.CasteSettings.MinIndex ||
                 Speed > SimulationSettings.Custom.CasteSettings.MaxIndex)
             {
@@ -72,7 +72,7 @@ namespace AntMe.Simulation
                         Resource.SimulationCoreCasteRuleSpeedFailed, Name, aiName));
             }
 
-            // Prüfen, ob der Drehgeschwindigkeitsmodifikator im Rahmen ist
+            // PrÃ¼fen, ob der Drehgeschwindigkeitsmodifikator im Rahmen ist
             if (RotationSpeed < SimulationSettings.Custom.CasteSettings.MinIndex ||
                 RotationSpeed > SimulationSettings.Custom.CasteSettings.MaxIndex)
             {
@@ -83,7 +83,7 @@ namespace AntMe.Simulation
                         aiName));
             }
 
-            // Prüfen, ob der Lastmodifikator im Rahmen ist
+            // PrÃ¼fen, ob der Lastmodifikator im Rahmen ist
             if (Load < SimulationSettings.Custom.CasteSettings.MinIndex ||
                 Load > SimulationSettings.Custom.CasteSettings.MaxIndex)
             {
@@ -91,7 +91,7 @@ namespace AntMe.Simulation
                     string.Format(Resource.SimulationCoreCasteRuleLoadFailed, Name, aiName));
             }
 
-            // Prüfen, ob der Sichtweitemodifikator im Rahmen ist
+            // PrÃ¼fen, ob der Sichtweitemodifikator im Rahmen ist
             if (ViewRange < SimulationSettings.Custom.CasteSettings.MinIndex ||
                 ViewRange > SimulationSettings.Custom.CasteSettings.MaxIndex)
             {
@@ -100,7 +100,7 @@ namespace AntMe.Simulation
                         Resource.SimulationCoreCasteRuleViewRangeFailed, Name, aiName));
             }
 
-            // Prüfen, ob der Riechweitemodifikator im Rahmen ist
+            // PrÃ¼fen, ob der Riechweitemodifikator im Rahmen ist
             if (Range < SimulationSettings.Custom.CasteSettings.MinIndex ||
                 Range > SimulationSettings.Custom.CasteSettings.MaxIndex)
             {
@@ -109,7 +109,7 @@ namespace AntMe.Simulation
                         Resource.SimulationCoreCasteRuleRangeFailed, Name, aiName));
             }
 
-            // Prüfen, ob der Energiemodifikator im Rahmen ist
+            // PrÃ¼fen, ob der Energiemodifikator im Rahmen ist
             if (Energy < SimulationSettings.Custom.CasteSettings.MinIndex ||
                 Energy > SimulationSettings.Custom.CasteSettings.MaxIndex)
             {
@@ -117,7 +117,7 @@ namespace AntMe.Simulation
                     string.Format(Resource.SimulationCoreCasteRuleEnergyFailed, Name, aiName));
             }
 
-            // Prüfen, ob der Angriffsmodifikator im Rahmen ist
+            // PrÃ¼fen, ob der Angriffsmodifikator im Rahmen ist
             if (Attack < SimulationSettings.Custom.CasteSettings.MinIndex ||
                 Attack > SimulationSettings.Custom.CasteSettings.MaxIndex)
             {
@@ -125,7 +125,7 @@ namespace AntMe.Simulation
                     string.Format(Resource.SimulationCoreCasteRuleAttackFailed, Name, aiName));
             }
 
-            // Prüfen, ob die Eigenschaftssumme stimmt
+            // PrÃ¼fen, ob die Eigenschaftssumme stimmt
             if (Speed +
                 RotationSpeed +
                 Load +
